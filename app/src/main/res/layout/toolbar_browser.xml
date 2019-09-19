@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/posPortaitToolbar"
+	android:layout_width="match_parent"
+	android:layout_height="@dimen/sell_size_fvty_normal"
+	android:background="#fff"
+	app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/sell_size_frty_normal"
+		android:background="#fff"
+		android:gravity="center_vertical">
+		<ImageView
+			android:layout_height="@dimen/sell_size_ftteen_normal"
+			android:layout_width="@dimen/sell_size_thrtfv_normal"
+			android:layout_alignParentLeft="true"
+			android:id="@+id/back"
+			android:src="@drawable/back_arrow2"
+			android:layout_centerVertical="true"
+			android:layout_marginRight="@dimen/sell_size_twofv_normal" />
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Skip"
+			android:id="@+id/title"
+			android:textColor="#5b6883"
+			android:fontFamily="sans-serif"
+			android:textSize="@dimen/sell_size_thteen_sp_normal"
+			android:textStyle="bold"
+			android:layout_marginTop="@dimen/sell_size_one_normal"
+			android:layout_centerVertical="true"
+			android:layout_centerHorizontal="true"
+			android:layout_marginRight="@dimen/sell_size_twnty_normal" />
+	</RelativeLayout>
+</android.support.v7.widget.Toolbar>

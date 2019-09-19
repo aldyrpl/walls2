@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"   >
+
+    <solid
+        android:color="#ff0057" >
+    </solid>
+
+    <stroke
+        android:width="@dimen/sell_size_two_normal"
+        android:color="#fff" >
+    </stroke>
+
+    <padding
+        android:left="@dimen/sell_size_nine_normal"
+        android:top="@dimen/sell_size_nine_normal"
+        android:right="@dimen/sell_size_nine_normal"
+        android:bottom="@dimen/sell_size_nine_normal"    >
+    </padding>
+
+    <corners
+        android:radius="@dimen/sell_size_nine_normal"   >
+    </corners>
+
+</shape>

@@ -1,0 +1,76 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+        <item name="colorControlHighlight">@color/secondaryDarkColor</item>
+        <item name="android:textColorSecondary">@color/primaryTextColor</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back_black_24dp</item>
+        <item name="android:colorEdgeEffect">@color/secondaryDarkColor</item>
+        <item name="actionModeBackground">@color/shimmer_background</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="dialogCornerRadius">15dp</item>
+    </style>
+
+    <style name="AppTheme.HelpText">
+        <item name="android:textSize">12sp</item>
+
+        <item name="android:color">@color/secondaryTextColor</item>
+    </style>
+
+    <style name="SelectableItemBackground">
+        <item name="android:theme">@style/AppTheme</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="AttachmentTypeLabel">
+        <item name="android:textColor">#ff999999</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AppThemee" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:navigationBarColor">#ff0057</item>
+    </style>
+
+    <style name="Spinner" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="DialogTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:statusBarColor">#3b9d48</item>
+        <item name ="android:fitsSystemWindows">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="DialogFragmentTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

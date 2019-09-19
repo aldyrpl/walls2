@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="timestampsize">12sp</dimen>
+    <dimen name="custom_dialog_text_size">16sp</dimen>
+    <dimen name="toolbar_title">20sp</dimen>
+    <dimen name="text_header">16sp</dimen>
+    <dimen name="small_text">12sp</dimen>
+    <dimen name="label_size">14sp</dimen>
+    <dimen name="tab_height">40dp</dimen>
+    <dimen name="design_fab_size_normal" tools:override="true">70dp</dimen>
+    <dimen name="height_list">90dp</dimen>
+
+    <!-- Default -->
+    <dimen name="radius_default">3dp</dimen>
+    <dimen name="padding_default">8dp</dimen>
+    <dimen name="margin_default">5dp</dimen>
+    <dimen name="line_default">1dp</dimen>
+    <!-- Products -->
+    <bool name="orientationnya">true</bool>
+    <string name="dmnnya">norm</string>
+    <dimen name="size_margin">0dp</dimen>
+    <dimen name="size_one_normal">1dp</dimen>
+    <dimen name="size_two_normal">2dp</dimen>
+    <dimen name="size_twofv_normal">2.5dp</dimen>
+    <dimen name="size_four_normal">4dp</dimen>
+    <dimen name="size_five_normal">5dp</dimen>
+    <dimen name="size_eight_normal">8dp</dimen>
+    <dimen name="size_ten_normal">10dp</dimen>
+    <dimen name="size_twelve_normal">12dp</dimen>
+    <dimen name="size_ftteen_normal">15dp</dimen>
+    <dimen name="size_svteen_normal">17dp</dimen>
+    <dimen name="size_twnty_normal">20dp</dimen>
+    <dimen name="size_twfive_normal">25dp</dimen>
+    <dimen name="size_thrty_normal">30dp</dimen>
+    <dimen name="size_frty_normal">40dp</dimen>
+    <dimen name="size_frty_norm">40dp</dimen>
+    <dimen name="size_frtyfr_normal">44dp</dimen>
+    <dimen name="size_fvty_normal">50dp</dimen>
+    <dimen name="size_sxty_normal">60dp</dimen>
+    <dimen name="size_svty_normal">70dp</dimen>
+    <dimen name="sell_size_twseven_normal">27dp</dimen>
+    <dimen name="size_svtyfv_normal">75dp</dimen>
+    <dimen name="size_egtyth_normal">83dp</dimen>
+    <dimen name="size_nnty_normal">90dp</dimen>
+    <dimen name="size_thsnd_normal">100dp</dimen>
+    <dimen name="size_thsndtn_normal">110dp</dimen>
+    <dimen name="size_thtwnty_normal">120dp</dimen>
+    <dimen name="size_thtweg_normal">128dp</dimen>
+    <dimen name="size_ththrty_normal">135dp</dimen>
+    <dimen name="size_thfvty_normal">150dp</dimen>
+    <dimen name="size_thsxtyfv_normal">165dp</dimen>
+    <dimen name="size_thsvty_normal">170dp</dimen>
+    <dimen name="size_thegnn_normal">193dp</dimen>
+    <dimen name="size_twthsxty_normal">260dp</dimen>
+    <dimen name="size_ththtwty_normal">160dp</dimen>
+    <dimen name="size_frthsnd_normal">200dp</dimen>
+    <dimen name="size_fvthsnd_normal">250dp</dimen>
+    <dimen name="size_svthsnd_normal">350dp</dimen>
+    <dimen name="size_nnthsnd_normal">450dp</dimen>
+    <dimen name="size_1680_normal">1680dp</dimen>
+    <dimen name="size_840dp_normal">840dp</dimen>
+    <!--  <dimen name="sell_size_TokoBg_normal">165dp</dimen>-->
+    <!-- string   -->
+    <dimen name="size_eight_sp_normal">8sp</dimen>
+    <dimen name="size_ten_sp_normal">10sp</dimen>
+    <dimen name="size_eleven_sp_normal">11sp</dimen>
+    <dimen name="size_thrteen_sp_normal">13sp</dimen>
+    <dimen name="size_frteen_sp_normal">14sp</dimen>
+    <dimen name="size_fvteen_sp_normal">15sp</dimen>
+    <dimen name="size_svteen_sp_normal">17sp</dimen>
+    <dimen name="size_eghteen_sp_normal">18sp</dimen>
+    <dimen name="size_twnty_sp_normal">20sp</dimen>
+    <dimen name="size_twntytw_sp_normal">22sp</dimen>
+    <dimen name="size_thrty_sp_normal">25sp</dimen>
+    <dimen name="size_twntyfour_sp_normal">24sp</dimen>
+    <dimen name="size_therty_sp_normal">30sp</dimen>
+    <dimen name="size_fourty_sp_normal">40sp</dimen>
+
+    <!--SellPage-->
+    <!--padding etc-->
+    <dimen name="sell_size_one_normal">1dp</dimen>
+    <dimen name="sell_size_onefv_normal">1.5dp</dimen>
+    <dimen name="sell_size_two_normal">2dp</dimen>
+    <dimen name="sell_size_twofv_normal">2.5dp</dimen>
+    <dimen name="sell_size_three_normal">3dp</dimen>
+    <dimen name="sell_size_threefive_normal">3.5dp</dimen>
+    <dimen name="sell_size_four_normal">4dp</dimen>
+    <dimen name="sell_size_five_normal">5dp</dimen>
+    <dimen name="sell_size_six_normal">6dp</dimen>
+    <dimen name="sell_size_sevenfive_normal">7.5dp</dimen>
+    <dimen name="sell_size_nine_normal">9dp</dimen>
+    <dimen name="sell_size_ten_normal">10dp</dimen>
+    <dimen name="sell_size_twelve_normal">12dp</dimen>
+    <dimen name="sell_size_ftteen_normal">19dp</dimen>
+    <dimen name="sell_size_svteen_normal">17dp</dimen>
+    <dimen name="sell_size_svteenfv_normal">17.5dp</dimen>
+    <dimen name="sell_size_twnty_normal">20dp</dimen>
+    <dimen name="sell_size_twfive_normal">25dp</dimen>
+    <dimen name="sell_size_twsix_normal">26dp</dimen>
+    <dimen name="sell_size_thrty_normal">30dp</dimen>
+    <dimen name="sell_size_thrtyon_normal">31dp</dimen>
+    <dimen name="sell_size_thrtytw_normal">32dp</dimen>
+    <dimen name="sell_size_thrtfv_normal">35dp</dimen>
+    <dimen name="sell_size_thrteg_normal">38dp</dimen>
+    <dimen name="sell_size_frty_normal">40dp</dimen>
+    <dimen name="sell_size_frtyfr_normal">44dp</dimen>
+    <dimen name="sell_size_fvty_normal">50dp</dimen>
+    <dimen name="sell_size_fvtyfv_normal">55dp</dimen>
+    <dimen name="sell_size_sxty_normal">60dp</dimen>
+    <dimen name="sell_size_sxonfv_normal">61.5dp</dimen>
+    <dimen name="sell_size_sxtyfv_normal">65dp</dimen>
+    <dimen name="sell_size_svty_normal">70dp</dimen>
+    <dimen name="sell_size_svtyfv_normal">75dp</dimen>
+    <dimen name="sell_size_eighty_normal">80dp</dimen>
+    <dimen name="sell_size_egtyth_normal">83dp</dimen>
+    <dimen name="sell_size_nnty_normal">90dp</dimen>
+    <dimen name="sell_size_thsnd_normal">100dp</dimen>
+    <dimen name="sell_size_thsndtn_normal">110dp</dimen>
+    <dimen name="sell_size_thtwnty_normal">120dp</dimen>
+    <dimen name="sell_size_thtweg_normal">128dp</dimen>
+    <dimen name="sell_size_ththrty_normal">135dp</dimen>
+    <dimen name="sell_size_thfvty_normal">150dp</dimen>
+    <dimen name="sell_size_thsxtyfv_normal">165dp</dimen>
+    <dimen name="sell_size_thsvty_normal">170dp</dimen>
+    <dimen name="sell_size_thnnth_normal">193dp</dimen>
+    <dimen name="sell_size_twthsnd_normal">235dp</dimen>
+    <dimen name="sell_size_twthtxsv_normal">227.33dp</dimen>
+    <dimen name="sell_size_twththrfv_normal">235dp</dimen>
+    <dimen name="sell_size_twthfvty_normal">250dp</dimen>
+    <dimen name="sell_size_twthsxty_normal">260dp</dimen>
+    <dimen name="sell_size_twthsvtyfv_normal">300dp</dimen>
+    <dimen name="sell_size_ththtwty_normal">320dp</dimen>
+    <dimen name="sell_size_frthsnd_normal">400dp</dimen>
+    <dimen name="sell_size_frthsnd2_normal">412dp</dimen>
+    <dimen name="sell_size_frthsnd3_normal">440dp</dimen>
+    <dimen name="sell_size_fvthsnd_normal">500dp</dimen>
+    <dimen name="sell_size_fvththth_normal">533.33dp</dimen>
+    <dimen name="sell_size_svthsnd_normal">700dp</dimen>
+    <dimen name="sell_size_nnthsnd_normal">900dp</dimen>
+    <dimen name="sell_size_TokoBg_normal">165dp</dimen>
+
+    <!--string-->
+    <dimen name="sell_size_five_sp_normal">7sp</dimen>
+    <dimen name="sell_size_ten_sp_normal">12sp</dimen>
+    <dimen name="sell_size_twelve_sp_normal">14sp</dimen>
+    <dimen name="sell_size_txlvfv_sp_normal">14.5sp</dimen>
+    <dimen name="sell_size_thteen_sp_normal">15sp</dimen>
+    <dimen name="sell_size_frteen_sp_normal">16sp</dimen>
+    <dimen name="sell_size_fvteen_sp_normal">17sp</dimen>
+    <dimen name="sell_size_svteen_sp_normal">19sp</dimen>
+    <dimen name="sell_size_eghteen_sp_normal">20sp</dimen>
+    <dimen name="sell_size_twntyfour_sp_normal">24sp</dimen>
+    <dimen name="sell_size_frty_sp_normal">22sp</dimen>
+    <dimen name="sell_size_therty_sp_normal">32sp</dimen>
+    <dimen name="sell_size_twntyfour_sp">24sp</dimen>
+    <dimen name="sell_size_fourty_sp_normal">40sp</dimen>
+
+    <dimen name="sell_size_fourtyfv_sp_normal">45sp</dimen>
+    <dimen name="size_eleven_sp_normal_print">14.5sp</dimen>
+    <dimen name="size_twelve_sp_normal_print">16sp</dimen>
+    <dimen name="printer_size_five_sp_normal">5sp</dimen>
+    <dimen name="printer_size_eight_sp_normal">9sp</dimen>
+    <dimen name="sell_size_nine_sp_normal">13sp</dimen>
+    <dimen name="sell_size_eightfive_sp_normal">12sp</dimen>
+
+    <dimen name="height_login">50dp</dimen>
+
+    <dimen name="tinggiiconorange">32.5dp</dimen>
+    <dimen name="tinggiiconorangee">45.5dp</dimen>
+    <dimen name="tinggikey">55dp</dimen>
+
+    <dimen name="jarakmenu">18dp</dimen>
+    <dimen name="heightlistmenu">35dp</dimen>
+    <dimen name="textsizelistmenu">16sp</dimen>
+
+    <dimen name="sell_size_sxtyfv_normal_portrait">60dp</dimen>
+
+    <!--  Ecommerce  -->
+    <item type="dimen" format="float" name="scaleCheckbox">0.7</item>
+
+    <dimen name="ecommerce_sell_size_five_sp_normal">5sp</dimen>
+    <dimen name="ecommerce_sell_size_ten_sp_normal">10sp</dimen>
+    <dimen name="ecommerce_sell_size_twelve_sp_normal">12sp</dimen>
+    <dimen name="ecommerce_sell_size_txlvfv_sp_normal">12.5sp</dimen>
+    <dimen name="ecommerce_sell_size_thteen_sp_normal">13sp</dimen>
+    <dimen name="ecommerce_sell_size_frteen_sp_normal">14sp</dimen>
+    <dimen name="ecommerce_sell_size_fvteen_sp_normal">15sp</dimen>
+    <dimen name="ecommerce_sell_size_svteen_sp_normal">17sp</dimen>
+    <dimen name="ecommerce_sell_size_eghteen_sp_normal">18sp</dimen>
+    <dimen name="ecommerce_sell_size_twntyfour_sp_normal">24sp</dimen>
+    <dimen name="ecommerce_sell_size_frty_sp_normal">22sp</dimen>
+    <dimen name="ecommerce_sell_size_therty_sp_normal">30sp</dimen>
+
+    <dimen name="toolbar_height">25dp</dimen>
+</resources>
