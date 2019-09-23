@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent">
-                <LinearLayout
+        <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="vertical"
                     android:layout_weight="9"
@@ -27,13 +27,13 @@
             android:id="@+id/relativeHomeHeader">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="278dp"
+                android:layout_height="@dimen/sell_size_twthsxty_normal"
                 android:layout_marginBottom="@dimen/sell_size_twelve_normal">
                 <LinearLayout
                     android:id="@+id/linearHeader"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/size_frthsnd_normal"
                     android:paddingTop="@dimen/sell_size_twnty_normal"
                     android:paddingLeft="@dimen/sell_size_thrty_normal"
                     android:background="@drawable/home_header_red_round"
@@ -102,7 +102,7 @@
                             android:textColor="#5b6883"
                             android:lineSpacingExtra="3sp"
                             android:text="Cerah"
-                            android:layout_marginBottom="7dp"
+                            android:layout_marginBottom="4dp"
                             android:id="@+id/txtHomeWeather"
                             />
                         <TextView
@@ -133,7 +133,8 @@
                 android:layout_height="82dp"
                 android:layout_below="@id/linearWeatherDetail"
                 android:background="@null"
-                android:gravity="left"
+                android:scrollbarStyle="outsideInset"
+                android:gravity="center"
                 android:paddingLeft="@dimen/sell_size_twfive_normal"
                 android:paddingRight="@dimen/sell_size_twfive_normal"
                 android:scrollbars="none">
@@ -141,8 +142,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#f9fafc"
-                android:layout_gravity="left"
-                android:gravity="left"
+                android:id="@+id/parentCategory"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView

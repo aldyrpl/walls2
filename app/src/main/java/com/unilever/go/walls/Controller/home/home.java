@@ -32,19 +32,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cometchat.pro.constants.CometChatConstants;
 import com.cometchat.pro.core.CometChat;
 import com.cometchat.pro.exceptions.CometChatException;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.unilever.go.walls.Activity.CometChatActivity;
 import com.unilever.go.walls.Contracts.LoginActivityContract;
+import com.unilever.go.walls.Contracts.StringContract;
+import com.unilever.go.walls.Controller.MainActivity;
 import com.unilever.go.walls.Controller.Retrofit.WeatherAPI;
 import com.unilever.go.walls.Controller.Retrofit.WeatherJson.JsonWeather;
 import com.unilever.go.walls.Controller.Retrofit.loginClassJson;
+import com.unilever.go.walls.Controller.SQL.DatabaseHandler;
 import com.unilever.go.walls.Controller.browser.browser;
 import com.unilever.go.walls.Controller.intro.login;
-import com.unilever.go.walls.Presenters.LoginAcitivityPresenter;
+//import com.unilever.go.walls.Controller.intro.profile;
+//import com.unilever.go.walls.Presenters.LoginAcitivityPresenter;
 import com.unilever.go.walls.R;
 
 import java.io.IOException;
@@ -62,9 +68,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class home extends AppCompatActivity implements View.OnClickListener,LoginActivityContract.LoginActivityView {
+public class home extends AppCompatActivity implements View.OnClickListener {
     GridView gridView;
-    public Activity is_this;
+    public static Activity is_this;
     static final String[] utility_category = new String[] {
             "Lighting", "AHU", "HWG", "Water Supply", "Air Compressor", "WTP"};
 
@@ -91,8 +97,10 @@ public class home extends AppCompatActivity implements View.OnClickListener,Logi
     LinearLayout scroll;
     TextView txtHomeCategory;
     ImageView imgCCTV;
-    public static loginClassJson.Result dataUser;
-    private LoginActivityContract.LoginActivityPresenter loginActivityPresenter;
+    DatabaseHandler databaseHandler;
+    public static String stateName;
+    public static Bitmap imageprofil;
+//    private LoginActivityContract.LoginActivityPresenter loginActivityPresenter;
     private FusedLocationProviderClient mFusedLocationClient;
     TextView grup;
     @Override
@@ -108,7 +116,7 @@ public class home extends AppCompatActivity implements View.OnClickListener,Logi
         } else {
             getWeatherAndLocation();
         }
-
+        databaseHandler = new DatabaseHandler(this);
         is_this = this;
         gridView = findViewById(R.id.gridHomeCategory);
         gridView.setFocusable(false);
@@ -144,39 +152,40 @@ public class home extends AppCompatActivity implements View.OnClickListener,Logi
         ImageView imgHomeProfil = findViewById(R.id.imgHomeProfil);
         imgHomeProfil.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                CometChat.logout(new CometChat.CallbackListener<String>() {
-                    @Override
-                    public void onSuccess(String successMessage) {
-                        Toast.makeText(home.this, "Logout Success", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                    @Override
-                    public void onError(CometChatException e) {
-                        Toast.makeText(home.this, "Logout Failed", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                Intent intent = new Intent(is_this, profile.class);
+                startActivity(intent);
+//                CometChat.logout(new CometChat.CallbackListener<String>() {
+//                    @Override
+//                    public void onSuccess(String successMessage) {
+//                    }
+//                    @Override
+//                    public void onError(CometChatException e) {
+////                        Toast.makeText(home.this, "Logout Failed", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+
             }
         });
         try {
             TextView nama = findViewById(R.id.txtHomeHeaderGreet2);
-            nama.setText(dataUser.getFullname());
+            nama.setText(login.dataUser.getFullname());
         }catch (Exception e){}
         try{
             grup = findViewById(R.id.txtHomeHeaderLocation);
-            grup.setText(dataUser.getGroupName());
+            grup.setText(login.dataUser.getGroupName());
         }catch (Exception e){}
         try{
             ImageView fotoprofil = findViewById(R.id.imgUserHome);
 
             URL url = null;
             try {
-                url = new URL(dataUser.getImg());
+                url = new URL(login.dataUser.getImg());
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
             try {
-                Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                fotoprofil.setImageBitmap(bmp);
+                imageprofil = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                fotoprofil.setImageBitmap(imageprofil);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -185,12 +194,8 @@ public class home extends AppCompatActivity implements View.OnClickListener,Logi
         imgHomeMessage.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                loginActivityPresenter = new LoginAcitivityPresenter();
-                loginActivityPresenter.attach(home.this);
-                loginActivityPresenter.loginCheck();
-                loginActivityPresenter.Login(home.this,dataUser.getId());
-
-                }
+                startActivity(new Intent(home.this, CometChatActivity.class));
+            }
         });
     }
 
@@ -258,7 +263,7 @@ public class home extends AppCompatActivity implements View.OnClickListener,Logi
                                             1);
                                     Address address = addresses.get(0);
                                     String cityName = address.getLocality();
-                                    String stateName = address.getSubLocality();
+                                    stateName = address.getSubLocality();
                                     String countryName = address.getAddressLine(2);
                                     grup.setText(grup.getText() + " - " + stateName);
 
@@ -327,12 +332,6 @@ public class home extends AppCompatActivity implements View.OnClickListener,Logi
         });
     }
 
-    @Override
-    public void startCometChatActivity() {
-
-        startActivity(new Intent(home.this, CometChatActivity.class));
-//        finish();
-    }
 
     public Drawable checkImageAktif(ImageView img){
         if(img == imgAmmonia){

@@ -65,7 +65,7 @@
             android:textColorHint="#cccccc"/>
 
 
-            <com.inscripts.cometchatpulse.demo.CustomView.RecordMicButton
+            <com.unilever.go.walls.CustomView.RecordMicButton
                 android:id="@+id/record_button"
                 android:layout_width="45dp"
                 android:layout_height="30dp"
@@ -75,10 +75,10 @@
                 android:layout_centerVertical="true"
                 android:layout_toStartOf="@id/buttonSendMessage"
                 android:background="@android:color/transparent">
-            </com.inscripts.cometchatpulse.demo.CustomView.RecordMicButton>
+            </com.unilever.go.walls.CustomView.RecordMicButton>
 
 
-            <com.inscripts.cometchatpulse.demo.CustomView.RecordAudio
+            <com.unilever.go.walls.CustomView.RecordAudio
                 android:id="@+id/record_audio_view"
                 android:layout_toStartOf="@id/record_button"
                 android:layout_toEndOf="@id/iv_attchment"
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-            </com.inscripts.cometchatpulse.demo.CustomView.RecordAudio>
+            </com.unilever.go.walls.CustomView.RecordAudio>
 
     </RelativeLayout>
 

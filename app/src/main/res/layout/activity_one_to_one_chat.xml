@@ -29,7 +29,7 @@
             android:layout_height="wrap_content">
 
 
-            <com.inscripts.cometchatpulse.demo.CustomView.CircleImageView
+            <com.unilever.go.walls.CustomView.CircleImageView
                 android:id="@+id/contact_pic"
                 android:layout_width="35dp"
                 android:transitionName="profilePic"

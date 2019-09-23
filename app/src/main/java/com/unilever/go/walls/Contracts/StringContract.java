@@ -48,5 +48,9 @@ public class StringContract {
         public static final String APP_ID  =  "7524645df428df";
         public static final String API_KEY =  "f5fac6d5d9b7af6320912e1d65a73ecffc15d63f";
 
+        public static final String FCM_APPLICATION_ID="1:64027007041:android:735e44a001ba583b9bcec0";
+
+        public static final String FCM_WEB_API_KEY="AIzaSyDvDP5_iswqPmxN0j3eGrTOnYuJomRqPA0";
+
     }
 }

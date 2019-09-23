@@ -12,7 +12,7 @@
     style="@style/SelectableItemBackground"
     android:focusable="true">
 
-    <com.inscripts.cometchatpulse.demo.CustomView.CircleImageView
+    <com.unilever.go.walls.CustomView.CircleImageView
         android:id="@+id/imageViewGroupAvatar"
         android:layout_width="45dp"
         android:layout_height="45dp"

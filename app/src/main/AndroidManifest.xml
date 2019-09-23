@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.inscripts.cometchatpulse.demo">
+    package="com.unilever.go.walls">
 
     <application
         android:allowBackup="false"
@@ -11,14 +11,17 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/logowalls"
         android:supportsRtl="true"
+        android:name="com.unilever.go.walls.CometApplication"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+
         <activity android:name=".CometApplication" />
         <activity android:name=".Controller.intro.login"></activity>
         <activity android:name=".Controller.home.home" />
+        <activity android:name=".Controller.home.profile" />
         <activity android:name=".Controller.browser.browser" />
         <activity android:name=".Controller.intro.welcome" />
         <activity android:name=".Controller.intro.intro" />
@@ -78,6 +81,16 @@
         <activity android:name=".Activity.IncomingCallActivity" />
         <activity android:name=".Activity.CallActivity" />
         <activity android:name=".Activity.SelectUserActivity" />
+
+        <service
+            android:name=".MyFirebaseService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
     </application>
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -90,7 +103,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
 </manifest>

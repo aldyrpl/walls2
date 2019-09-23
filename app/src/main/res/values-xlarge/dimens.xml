@@ -46,7 +46,7 @@
   <dimen name="size_twthsxty_normal">520dp</dimen>
   <dimen name="size_ththtwty_normal">320dp</dimen>
     <dimen name="size_ththtsxt_normal">360dp</dimen>
-  <dimen name="size_frthsnd_normal">400dp</dimen>
+  <dimen name="size_frthsnd_normal">270dp</dimen>
   <dimen name="size_fvthsnd_normal">500dp</dimen>
   <dimen name="size_svthsnd_normal">700dp</dimen>
   <dimen name="size_nnthsnd_normal">900dp</dimen>
@@ -122,7 +122,7 @@
   <dimen name="sell_size_twthtxsv_normal">454.66dp</dimen>
   <dimen name="sell_size_twththrfv_normal">470dp</dimen>
   <dimen name="sell_size_twthfvty_normal">500dp</dimen>
-  <dimen name="sell_size_twthsxty_normal">520dp</dimen>
+  <dimen name="sell_size_twthsxty_normal">330dp</dimen>
   <dimen name="sell_size_twthsvtyfv_normal">600dp</dimen>
   <dimen name="sell_size_ththtwty_normal">640dp</dimen>
   <dimen name="sell_size_frthsnd_normal">800dp</dimen>

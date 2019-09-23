@@ -22,11 +22,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String TABLE_USER = "tbl_user";
 
     // column tables
-    private static final String KEY_tbl_user_id = "id";
-    private static final String KEY_tbl_user_id_user_group = "id_user_group";
-    private static final String KEY_tbl_user_group_name = "group_name";
-    private static final String KEY_tbl_user_fullname = "fullname";
-    private static final String KEY_tbl_user_img = "img";
+    private static final String KEY_tbl_user_email = "email";
+    private static final String KEY_tbl_user_password = "password";
+//    private static final String KEY_tbl_user_group_name = "group_name";
+//    private static final String KEY_tbl_user_fullname = "fullname";
+//    private static final String KEY_tbl_user_img = "img";
 
     public DatabaseHandler(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -36,8 +36,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_USER + "("
-                + KEY_tbl_user_id + " TEXT," + KEY_tbl_user_id_user_group + " TEXT,"
-                + KEY_tbl_user_group_name + " TEXT," + KEY_tbl_user_fullname + " TEXT,"+ KEY_tbl_user_img+" TEXT)";
+                + KEY_tbl_user_email + " TEXT," + KEY_tbl_user_password + " TEXT)";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
 
@@ -48,14 +47,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertUser(user_model user){
+//    public void insertUser(user_model user){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put(KEY_tbl_user_email, user.getEmail());
+//        values.put(KEY_tbl_user_password, user.getPassword());
+//
+//        db.insert(TABLE_USER, null, values);
+//        db.close();
+//    }
+
+    public void insertEmailPassword(user_model user){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_tbl_user_id, user.getId());
-        values.put(KEY_tbl_user_id_user_group, user.getId_user_group());
-        values.put(KEY_tbl_user_group_name, user.getGroup_name());
-        values.put(KEY_tbl_user_fullname, user.getFullname());
-        values.put(KEY_tbl_user_img, user.getImg());
+        values.put(KEY_tbl_user_email, user.getEmail());
+        values.put(KEY_tbl_user_password, user.getPassword());
 
         db.insert(TABLE_USER, null, values);
         db.close();
@@ -88,11 +94,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if(cursor.moveToFirst()){
             do{
                 user_model user = new user_model();
-                user.setId(cursor.getString(cursor.getColumnIndex(KEY_tbl_user_id)));
-                user.setId_user_group(cursor.getString(cursor.getColumnIndex(KEY_tbl_user_id_user_group)));
-                user.setGroup_name(cursor.getString(cursor.getColumnIndex(KEY_tbl_user_group_name)));
-                user.setFullname(cursor.getString(cursor.getColumnIndex(KEY_tbl_user_fullname)));
-                user.setImg(cursor.getString(cursor.getColumnIndex(KEY_tbl_user_img)));
+                user.setEmail(cursor.getString(cursor.getColumnIndex(KEY_tbl_user_email)));
+                user.setPassword(cursor.getString(cursor.getColumnIndex(KEY_tbl_user_password)));
                 listUser.add(user);
             }while(cursor.moveToNext());
         }

@@ -10,6 +10,9 @@ import com.cometchat.pro.core.CometChat;
 import com.cometchat.pro.exceptions.CometChatException;
 import com.cometchat.pro.models.User;
 import com.unilever.go.walls.Contracts.StringContract;
+import com.unilever.go.walls.Controller.MainActivity;
+import com.unilever.go.walls.Controller.home.home;
+import com.unilever.go.walls.MyFirebaseService;
 
 public class LoginAcitivityPresenter extends Presenter<LoginActivityContract.LoginActivityView> implements
 LoginActivityContract.LoginActivityPresenter{
@@ -24,6 +27,9 @@ LoginActivityContract.LoginActivityPresenter{
             public void onSuccess(User user) {
                 Log.d(TAG, "onSuccess: "+user.getUid());
                 getBaseView().startCometChatActivity();
+//                MyFirebaseService.subscribeUser(user.getUid());
+//
+//                MyFirebaseService.subscribeGroup(MainActivity.dataUser.getIdUserGroup());
             }
 
             @Override

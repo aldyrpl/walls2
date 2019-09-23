@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class loginClassJson {
 
+
     @SerializedName("message")
     @Expose
     private String message;
@@ -52,6 +53,7 @@ public class loginClassJson {
 
     public class Result {
 
+
         @SerializedName("id")
         @Expose
         private String id;
@@ -70,6 +72,13 @@ public class loginClassJson {
         @SerializedName("token")
         @Expose
         private String token;
+//
+//        public Result() {
+//        }
+//
+//        public Result(String id) {
+//            this.id = id;
+//        }
 
         public String getId() {
             return id;

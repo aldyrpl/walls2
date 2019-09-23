@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="@+id/cardview"
         app:srcCompat="@drawable/cc_play_video_button" />
 
-    <com.inscripts.cometchatpulse.demo.CustomView.CircleImageView
+    <com.unilever.go.walls.CustomView.CircleImageView
         android:id="@+id/messageStatus"
         android:layout_width="10dp"
         android:layout_height="10dp"

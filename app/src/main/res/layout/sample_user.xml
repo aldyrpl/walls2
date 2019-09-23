@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
 
-        <com.inscripts.cometchatpulse.demo.CustomView.CircleImageView
+        <com.unilever.go.walls.CustomView.CircleImageView
             android:id="@+id/ivAvatar"
             android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"

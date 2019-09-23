@@ -9,7 +9,7 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
 
-    <com.inscripts.cometchatpulse.demo.CustomView.CircleImageView
+    <com.unilever.go.walls.CustomView.CircleImageView
         android:id="@+id/imageViewUserAvatar"
         android:layout_width="45dp"
         android:layout_height="45dp"
