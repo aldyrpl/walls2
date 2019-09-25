@@ -26,6 +26,7 @@
         <activity android:name=".Controller.intro.welcome" />
         <activity android:name=".Controller.intro.intro" />
         <activity android:name=".Controller.intro.SampleSlide" />
+        <activity android:name=".Controller.home.termscondition" />
         <activity android:name=".Controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

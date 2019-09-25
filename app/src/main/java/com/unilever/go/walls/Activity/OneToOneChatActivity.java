@@ -451,13 +451,13 @@ public class OneToOneChatActivity extends AppCompatActivity implements OneToOneA
                 onBackPressed();
                 break;
 
-            case R.id.menu_custom_action_video_call:
-                oneToOnePresenter.sendCallRequest(this, contactUid, CometChatConstants.RECEIVER_TYPE_USER, CometChatConstants.CALL_TYPE_VIDEO);
-                break;
-
-            case R.id.menu_custom_action_audio_call:
-                oneToOnePresenter.sendCallRequest(this, contactUid, CometChatConstants.RECEIVER_TYPE_USER, CometChatConstants.CALL_TYPE_AUDIO);
-                break;
+//            case R.id.menu_custom_action_video_call:
+//                oneToOnePresenter.sendCallRequest(this, contactUid, CometChatConstants.RECEIVER_TYPE_USER, CometChatConstants.CALL_TYPE_VIDEO);
+//                break;
+//
+//            case R.id.menu_custom_action_audio_call:
+//                oneToOnePresenter.sendCallRequest(this, contactUid, CometChatConstants.RECEIVER_TYPE_USER, CometChatConstants.CALL_TYPE_AUDIO);
+//                break;
 
             case R.id.menu_block_user:
                 oneToOnePresenter.blockUser(contactId);

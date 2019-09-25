@@ -178,17 +178,29 @@ public class home extends AppCompatActivity implements View.OnClickListener {
             ImageView fotoprofil = findViewById(R.id.imgUserHome);
 
             URL url = null;
-            try {
-                url = new URL(login.dataUser.getImg());
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-            try {
-                imageprofil = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                fotoprofil.setImageBitmap(imageprofil);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            new Thread(new Runnable() {
+                public void run() {
+                    URL url = null;
+                    try {
+                        url = new URL(login.dataUser.getImg());
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    Bitmap a = null;
+                    try {
+                        imageprofil = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                fotoprofil.setImageBitmap(imageprofil);
+                            }
+                        });
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
         }catch (Exception e){}
         ImageView imgHomeMessage = findViewById(R.id.imgHomeMessage);
         imgHomeMessage.setOnClickListener(new View.OnClickListener() {

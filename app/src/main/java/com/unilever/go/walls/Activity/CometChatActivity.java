@@ -259,23 +259,23 @@ public class CometChatActivity extends AppCompatActivity implements ScrollHelper
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.menu_settings:
-                User user = CometChat.getLoggedInUser();
-                Intent intent = new Intent(context, UsersProfileViewActivity.class);
-                intent.putExtra(StringContract.IntentStrings.PROFILE_VIEW, true);
-                intent.putExtra(StringContract.IntentStrings.USER_ID, user.getUid());
-                intent.putExtra(StringContract.IntentStrings.USER_AVATAR, user.getAvatar());
-                intent.putExtra(StringContract.IntentStrings.USER_NAME, user.getName());
-                startActivity(intent);
-                break;
+//            case R.id.menu_settings:
+//                User user = CometChat.getLoggedInUser();
+//                Intent intent = new Intent(context, UsersProfileViewActivity.class);
+//                intent.putExtra(StringContract.IntentStrings.PROFILE_VIEW, true);
+//                intent.putExtra(StringContract.IntentStrings.USER_ID, user.getUid());
+//                intent.putExtra(StringContract.IntentStrings.USER_AVATAR, user.getAvatar());
+//                intent.putExtra(StringContract.IntentStrings.USER_NAME, user.getName());
+//                startActivity(intent);
+//                break;
 
-            case R.id.menu_log_out:
-                cometChatActivityPresenter.logOut(this);
-                break;
-
-            case R.id.menu_blocked_user:
-                startActivity(new Intent(this,BlockedUserListActivity.class));
-                break;
+//            case R.id.menu_log_out:
+//                cometChatActivityPresenter.logOut(this);
+//                break;
+//
+//            case R.id.menu_blocked_user:
+//                startActivity(new Intent(this,BlockedUserListActivity.class));
+//                break;
         }
         return super.onOptionsItemSelected(item);
 

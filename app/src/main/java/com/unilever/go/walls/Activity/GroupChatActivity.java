@@ -508,13 +508,13 @@ public class GroupChatActivity extends AppCompatActivity implements GroupChatAct
                 onBackPressed();
                 break;
 
-            case R.id.menu_custom_action_video_call:
-                groupChatPresenter.sendCallRequest(this, groupId, CometChatConstants.RECEIVER_TYPE_GROUP, CometChatConstants.CALL_TYPE_VIDEO);
-                break;
-
-            case R.id.menu_custom_action_audio_call:
-                groupChatPresenter.sendCallRequest(this, groupId, CometChatConstants.RECEIVER_TYPE_GROUP, CometChatConstants.CALL_TYPE_AUDIO);
-                break;
+//            case R.id.menu_custom_action_video_call:
+//                groupChatPresenter.sendCallRequest(this, groupId, CometChatConstants.RECEIVER_TYPE_GROUP, CometChatConstants.CALL_TYPE_VIDEO);
+//                break;
+//
+//            case R.id.menu_custom_action_audio_call:
+//                groupChatPresenter.sendCallRequest(this, groupId, CometChatConstants.RECEIVER_TYPE_GROUP, CometChatConstants.CALL_TYPE_AUDIO);
+//                break;
 
             case R.id.menu_group_leave:
                 groupChatPresenter.leaveGroup(group, GroupChatActivity.this);

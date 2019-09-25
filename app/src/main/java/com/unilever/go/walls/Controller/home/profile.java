@@ -9,16 +9,24 @@ import com.unilever.go.walls.Controller.intro.login;
 import com.unilever.go.walls.R;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class profile extends AppCompatActivity {
     android.app.Activity is_this;
+    Bitmap bitmapimage = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +38,43 @@ public class profile extends AppCompatActivity {
         TextView txtHomeHeaderGreet2 = findViewById(R.id.txtHomeHeaderGreet2);
         txtHomeHeaderGreet2.setText(login.dataUser.getFullname());
         ImageView imgUserHome = findViewById(R.id.imgUserHome);
-        imgUserHome.setImageBitmap(home.imageprofil);
+
+        if(home.imageprofil != null) {
+            imgUserHome.setImageBitmap(home.imageprofil);
+        }else{
+
+            new Thread(new Runnable() {
+                public void run() {
+                    URL url = null;
+                    try {
+                        url = new URL(login.dataUser.getImg());
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        bitmapimage = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            imgUserHome.setImageBitmap(bitmapimage);
+                        }
+                    });
+
+                }
+            }).start();
+        }
+        TextView about = findViewById(R.id.about);
+        about.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Intent intent = new Intent(profile.this, termscondition.class);
+                startActivity(intent);
+            }
+        });
         TextView logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
 

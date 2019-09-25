@@ -10,17 +10,17 @@
         app:actionViewClass="android.support.v7.widget.SearchView" />
 
 
-    <item
-        android:id="@+id/menu_custom_action_video_call"
-        android:icon="@drawable/ic_video_call_black_24dp"
-        android:title=""
-        app:showAsAction="always" />
+<!--    <item-->
+<!--        android:id="@+id/menu_custom_action_video_call"-->
+<!--        android:icon="@drawable/ic_video_call_black_24dp"-->
+<!--        android:title=""-->
+<!--        app:showAsAction="always" />-->
 
-    <item
-        android:id="@+id/menu_custom_action_audio_call"
-        android:icon="@drawable/ic_call_black_24dp"
-        android:title=""
-        app:showAsAction="always" />
+<!--    <item-->
+<!--        android:id="@+id/menu_custom_action_audio_call"-->
+<!--        android:icon="@drawable/ic_call_black_24dp"-->
+<!--        android:title=""-->
+<!--        app:showAsAction="always" />-->
 
 
     <!--<item-->
