@@ -22,18 +22,19 @@
 			android:src="@drawable/back_arrow2"
 			android:layout_centerVertical="true"
 			android:layout_marginRight="@dimen/sell_size_twofv_normal" />
-<!--		<TextView-->
-<!--			android:layout_height="wrap_content"-->
-<!--			android:layout_width="wrap_content"-->
-<!--			android:text="Skip"-->
-<!--			android:id="@+id/skip"-->
-<!--			android:textColor="#5b6883"-->
-<!--			android:fontFamily="sans-serif"-->
-<!--			android:textSize="@dimen/sell_size_thteen_sp_normal"-->
-<!--			android:textStyle="bold"-->
-<!--			android:layout_marginTop="@dimen/sell_size_one_normal"-->
-<!--			android:layout_alignParentRight="true"-->
-<!--			android:layout_centerVertical="true"-->
-<!--			android:layout_marginRight="@dimen/sell_size_twnty_normal" />-->
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Skip"
+			android:id="@+id/skip"
+			android:textColor="#5b6883"
+			android:fontFamily="sans-serif"
+			android:visibility="gone"
+			android:textSize="@dimen/sell_size_thteen_sp_normal"
+			android:textStyle="bold"
+			android:layout_marginTop="@dimen/sell_size_one_normal"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:layout_marginRight="@dimen/sell_size_twnty_normal" />
 	</RelativeLayout>
 </android.support.v7.widget.Toolbar>

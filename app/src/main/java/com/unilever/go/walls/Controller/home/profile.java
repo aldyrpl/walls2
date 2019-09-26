@@ -4,6 +4,7 @@ import com.cometchat.pro.core.CometChat;
 import com.cometchat.pro.exceptions.CometChatException;
 import com.unilever.go.walls.Activity.CometChatActivity;
 import com.unilever.go.walls.Controller.SQL.DatabaseHandler;
+import com.unilever.go.walls.Controller.home.gallery.gallery;
 import com.unilever.go.walls.Controller.home.home;
 import com.unilever.go.walls.Controller.intro.login;
 import com.unilever.go.walls.R;
@@ -38,6 +39,42 @@ public class profile extends AppCompatActivity {
         TextView txtHomeHeaderGreet2 = findViewById(R.id.txtHomeHeaderGreet2);
         txtHomeHeaderGreet2.setText(login.dataUser.getFullname());
         ImageView imgUserHome = findViewById(R.id.imgUserHome);
+
+        TextView contact_us = findViewById(R.id.aboutus);
+        contact_us.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Intent intent = new Intent(profile.this, about_us.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView my_profile = findViewById(R.id.my_profile);
+        my_profile.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Intent intent = new Intent(profile.this, my_profile.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageView imgHomeMessage = findViewById(R.id.imgHomeMessage);
+        imgHomeMessage.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                startActivity(new Intent(profile.this, CometChatActivity.class));
+                finish();
+            }
+        });
+
+        ImageView imgHomeCamera = findViewById(R.id.imgHomeCamera);
+        imgHomeCamera.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(is_this, gallery.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         if(home.imageprofil != null) {
             imgUserHome.setImageBitmap(home.imageprofil);

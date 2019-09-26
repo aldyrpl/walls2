@@ -22,7 +22,7 @@ public class about_us extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.termscondition);
+        setContentView(R.layout.about_us);
 
         TextView close = findViewById(R.id.close);
         close.setOnClickListener(new View.OnClickListener() {

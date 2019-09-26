@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:textStyle="bold"
             android:textColor="#ffffff"
-            android:text="Terms &amp; Condition"
+            android:text="About us"
             android:textSize="@dimen/size_twntytw_sp_normal"/>
         <TextView
             android:layout_width="0dp"
@@ -30,7 +30,7 @@
             android:textColor="#ffffff"
             android:text="Close"
             android:id="@+id/close"
-            android:textSize="@dimen/size_twntytw_sp_normal"/>
+            android:textSize="@dimen/size_eghteen_sp_normal"/>
     </LinearLayout>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="8"
-                    android:text="TERMS OF USE"
+                    android:text="ABOUT US"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="@dimen/sell_size_thrty_normal"
                     android:paddingBottom="@dimen/size_svteen_normal"
@@ -66,7 +66,18 @@
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
-                android:text="TERMS OF USE BELOW MUST BE READ BEFORE USING THIS APP. THE USAGE OF THIS APP INDICATES ACCEPTANCE OF THE TERMS AND CONDITIONS BELOW.\n\nWhen I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited. At that time I had spent a lot of time actually playing the video game Paperboy, so I knew I had what it took to get the job done. But, its just not that easy.\n\nThe StarTribune doesn’t just hand out the responsibility of informing their community’s citizenry on a daily basis to just any fool that says they’d like a shot at paper delivery greatness. Nope, I had to interview for this job. And I tell you, I was magnificent, so much so that, as you know, I got the position. Upon completion of the interview the gentleman that was to give me my first opportunity at financial freedom stood up from my dining room table, walked to the front door and with a smile and a handshake, was off into the darkness.\n\nMoments later, I noticed that the kindly gentleman had accidentally left his pen. It was beautiful, embossed with the StarTribune logo and all. I grabbed it and ran to the front door, but he was gone. It was at that moment that I received my first lesson in advertising specialties.\n\nCertainly at that point I was not a potential client for the Strib, but promotional advertising specialties are not just about making a sale. Logo distribution and brand recognition are an integral component to building a company and its client base. So, just to get the promotional product out there and off the shelf is an important part of the overall goal.\n\nI think that I lost the pen sometime that week, but I’ll never forget the lesson of promotional advertising specialties that I learned from the man that gave me my first god-awful, thankless job."
+                android:text="Business cards represent not only your business, but it also tells people your professionalism in the industry. In the business world today, the usage of business cards is far beyond just informing people who you are, it serves as one of the most cost-effective marketing and advertising tool for promoting your business. When you distribute business cards,\n\n
+Nature of Business
+\n\n
+Always remember to choose a theme that best suits your business, individual style and your business industry. If you’re in the childcare industry, a formal black and white type of card may not be quite effective for making a favorable impression among your clients. Color and Images
+\n\n
+You need to pay special attention to the type of colors in your business cards. Colors should be matched according to your business industry and style. For instance, if you’re in the funeral industry, bright-luminous type of colors may not be too appropriate. Considering the limited space of a business card, do keep the amount of images to the minimum for easier referencing. Placement of Business Details
+\n\n
+Ensure the placement of your personal and business attributes are in the correct order. Important details such as name, phone number and email address should be printed clearly. Unnecessary information should be kept away as much as possible.
+\n\n
+Keep Your Business Details Up-to-date
+\n\n
+Ensure that the details of your business card are up to date. Business card with outdated contact numbers and addresses should be amended before distributing to your clients."
                 android:layout_marginRight="@dimen/sell_size_thrty_normal"
                 android:paddingBottom="@dimen/size_svteen_normal"
                 android:paddingTop="@dimen/size_svteen_normal"

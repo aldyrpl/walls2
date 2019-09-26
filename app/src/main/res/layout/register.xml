@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="10"
+    android:paddingBottom="@dimen/size_frtyfr_normal"
+    android:background="#fff"
+    android:orientation="vertical">
+    <include
+        layout="@layout/toolbar" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/sell_size_nnty_normal"
+
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:fontFamily="sans-serif"
+            android:gravity="left|center"
+            android:paddingLeft="@dimen/sell_size_thrtytw_normal"
+            android:paddingRight="@dimen/sell_size_thrtytw_normal"
+            android:textColor="#3e4a59"
+            android:textSize="24sp"
+            android:text="Lengkapi \ndata dirimu!" />
+
+        <EditText
+            android:id="@+id/namalengkap"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:gravity="center|left"
+            android:hint="Nama Lengkap"
+            android:text=""
+            android:textColor="#3e4a59"
+            android:textSize="@dimen/sell_size_thteen_sp_normal" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:gravity="center|left"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="#3e4a59"
+            android:textSize="@dimen/sell_size_thteen_sp_normal" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:gravity="center|left"
+            android:hint="Password"
+            android:text=""
+            android:textColor="#3e4a59"
+            android:textSize="@dimen/sell_size_thteen_sp_normal" />
+
+        <EditText
+            android:id="@+id/password_retype"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:gravity="center|left"
+            android:hint="Re-type Password"
+            android:text=""
+            android:textColor="#3e4a59"
+            android:textSize="@dimen/sell_size_thteen_sp_normal" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/border_radius_9dp_pink"
+            android:gravity="center"
+            android:text="DAFTAR"
+            android:layout_alignParentBottom="true"
+            android:textSize="@dimen/sell_size_thteen_sp_normal"
+            android:textColor="#ffffff"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginTop="@dimen/sell_size_twelve_normal"
+            android:id="@+id/daftar" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4.5"/>
+    </LinearLayout>
+
+</RelativeLayout>

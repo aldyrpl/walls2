@@ -21,10 +21,15 @@
         <activity android:name=".CometApplication" />
         <activity android:name=".Controller.intro.login"></activity>
         <activity android:name=".Controller.home.home" />
+        <activity android:name=".Controller.home.gallery.gallery" />
+        <activity android:name=".Controller.home.gallery.view_image" />
         <activity android:name=".Controller.home.profile" />
         <activity android:name=".Controller.browser.browser" />
         <activity android:name=".Controller.intro.welcome" />
+        <activity android:name=".Controller.home.about_us" />
+        <activity android:name=".Controller.intro.register" />
         <activity android:name=".Controller.intro.intro" />
+        <activity android:name=".Controller.home.my_profile" />
         <activity android:name=".Controller.intro.SampleSlide" />
         <activity android:name=".Controller.home.termscondition" />
         <activity android:name=".Controller.MainActivity">

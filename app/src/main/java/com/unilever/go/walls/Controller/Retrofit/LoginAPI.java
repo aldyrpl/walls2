@@ -28,4 +28,12 @@ public interface LoginAPI {
     @FormUrlEncoded
     @POST("my-profile")
     Call<loginClassJson> myProfile();
+
+    @Headers({"GOWALLS-API-KEY: 6fba6be0-da86-4842-a7c6-80091dccb44f","Content-Type: application/x-www-form-urlencoded"})
+    @FormUrlEncoded
+    @POST("registration")
+    Call<registerJson> register(@Field("username") String username,
+                                @Field("userpass") String userpass,
+                                @Field("re_pass") String re_pass,
+                                @Field("email") String email);
 }

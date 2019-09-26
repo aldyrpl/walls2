@@ -9,7 +9,7 @@
         android:id="@+id/linearHeader"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_egtyth_normal"
+        android:layout_height="@dimen/size_svty_normal"
         android:paddingTop="@dimen/sell_size_twfive_normal"
         android:paddingLeft="@dimen/sell_size_twfive_normal"
         android:paddingRight="@dimen/sell_size_twnty_normal"
@@ -30,7 +30,7 @@
             android:textColor="#ffffff"
             android:text="Close"
             android:id="@+id/close"
-            android:textSize="@dimen/size_twntytw_sp_normal"/>
+            android:textSize="@dimen/size_eghteen_sp_normal"/>
     </LinearLayout>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

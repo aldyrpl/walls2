@@ -49,6 +49,7 @@
         android:paddingBottom="@dimen/size_svteen_normal"
         android:paddingTop="@dimen/size_svteen_normal"
         android:layout_marginLeft="@dimen/sell_size_thrty_normal"
+        android:id="@+id/my_profile"
         android:background="@drawable/border_abu_abu_bawah"
         android:textSize="@dimen/size_svteen_sp_normal"
         android:layout_height="wrap_content"/>
@@ -62,14 +63,15 @@
         android:background="@drawable/border_abu_abu_bawah"
         android:paddingTop="@dimen/size_svteen_normal"
         android:paddingBottom="@dimen/size_svteen_normal"
-        android:text="About Go-walls"
+        android:text="Terms &amp; Condition"
         android:textSize="@dimen/size_svteen_sp_normal" />
     <TextView
         android:layout_width="match_parent"
-        android:text="Contact Us"
+        android:text="About Us"
         android:layout_marginRight="@dimen/sell_size_thrty_normal"
         android:paddingBottom="@dimen/size_svteen_normal"
         android:paddingTop="@dimen/size_svteen_normal"
+        android:id="@+id/aboutus"
         android:layout_marginLeft="@dimen/sell_size_thrty_normal"
         android:background="@drawable/border_abu_abu_bawah"
         android:textSize="@dimen/size_svteen_sp_normal"

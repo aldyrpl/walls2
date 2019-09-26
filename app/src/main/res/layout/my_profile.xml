@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="10"
+    android:paddingBottom="@dimen/size_frtyfr_normal"
+    android:background="#fff"
+    android:orientation="vertical">
+    <include
+        layout="@layout/toolbar" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/sell_size_nnty_normal"
+
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:layout_height="70dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/namalengkap"
+                android:textColor="#3e4a59"
+                android:hint="Nama Lengkap"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:layout_height="70dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/email"
+                android:textColor="#3e4a59"
+                android:hint="Email"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:layout_height="70dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/nohp"
+                android:textColor="#3e4a59"
+                android:hint="Nomor HP"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:layout_height="70dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/jabatan"
+                android:textColor="#3e4a59"
+                android:hint="Jabatan"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:layout_height="70dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/lokasi"
+                android:textColor="#3e4a59"
+                android:hint="Lokasi"/>
+
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/border_radius_9dp_pink"
+            android:gravity="center"
+            android:text="UPDATE"
+            android:layout_alignParentBottom="true"
+            android:textSize="@dimen/sell_size_thteen_sp_normal"
+            android:textColor="#ffffff"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:layout_marginTop="@dimen/sell_size_twelve_normal"
+            android:id="@+id/update" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4.5"/>
+    </LinearLayout>
+
+</RelativeLayout>

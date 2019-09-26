@@ -34,6 +34,15 @@ public class welcome extends AppCompatActivity {
             }
         });
 
+        TextView daftar = findViewById(R.id.daftar);
+        daftar.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Intent intent = new Intent(is_this, register.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
