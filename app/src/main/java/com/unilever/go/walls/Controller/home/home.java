@@ -42,13 +42,13 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.unilever.go.walls.Activity.CometChatActivity;
 import com.unilever.go.walls.Contracts.LoginActivityContract;
 import com.unilever.go.walls.Contracts.StringContract;
-import com.unilever.go.walls.Controller.MainActivity;
 import com.unilever.go.walls.Controller.Retrofit.WeatherAPI;
 import com.unilever.go.walls.Controller.Retrofit.WeatherJson.JsonWeather;
 import com.unilever.go.walls.Controller.Retrofit.loginClassJson;
 import com.unilever.go.walls.Controller.SQL.DatabaseHandler;
 import com.unilever.go.walls.Controller.browser.browser;
 import com.unilever.go.walls.Controller.home.gallery.gallery;
+import com.unilever.go.walls.Controller.home.remindme.MainActivity;
 import com.unilever.go.walls.Controller.intro.login;
 //import com.unilever.go.walls.Controller.intro.profile;
 //import com.unilever.go.walls.Presenters.LoginAcitivityPresenter;
@@ -151,6 +151,13 @@ public class home extends AppCompatActivity implements View.OnClickListener {
         imgCCTV.setOnClickListener(this);
         menuAktif = imgUtility;
 
+        ImageView imgHomeCalendar = findViewById(R.id.imgHomeCalendar);
+        imgHomeCalendar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(is_this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
         ImageView imgHomeCamera = findViewById(R.id.imgHomeCamera);
         imgHomeCamera.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

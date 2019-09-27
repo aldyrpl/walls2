@@ -13,8 +13,8 @@ android {
         applicationId "com.unilever.go.walls"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 2006
-        versionName "2.6"
+        versionCode 2007
+        versionName "2.7"
         multiDexEnabled true
         renderscriptSupportModeEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -85,7 +85,10 @@ dependencies {
     implementation 'com.karumi:dexter:4.2.0'
     implementation 'com.google.firebase:firebase-core:16.0.8'
 
-
+    implementation 'com.getbase:floatingactionbutton:1.9.0'
+    implementation 'com.wdullaer:materialdatetimepicker:1.2.1'
+    implementation 'com.bignerdranch.android:recyclerview-multiselect:+'
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 }
 
 repositories {

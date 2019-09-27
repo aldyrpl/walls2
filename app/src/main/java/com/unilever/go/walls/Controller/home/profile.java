@@ -6,6 +6,7 @@ import com.unilever.go.walls.Activity.CometChatActivity;
 import com.unilever.go.walls.Controller.SQL.DatabaseHandler;
 import com.unilever.go.walls.Controller.home.gallery.gallery;
 import com.unilever.go.walls.Controller.home.home;
+import com.unilever.go.walls.Controller.home.remindme.MainActivity;
 import com.unilever.go.walls.Controller.intro.login;
 import com.unilever.go.walls.R;
 
@@ -67,6 +68,14 @@ public class profile extends AppCompatActivity {
             }
         });
 
+        ImageView imgHomeCalendar = findViewById(R.id.imgHomeCalendar);
+        imgHomeCalendar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(is_this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         ImageView imgHomeCamera = findViewById(R.id.imgHomeCamera);
         imgHomeCamera.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

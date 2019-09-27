@@ -17,7 +17,16 @@
         android:networkSecurityConfig="@xml/network_security_config"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
-
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths">
+            </meta-data>
+        </provider>
         <activity android:name=".CometApplication" />
         <activity android:name=".Controller.intro.login"></activity>
         <activity android:name=".Controller.home.home" />
@@ -32,6 +41,24 @@
         <activity android:name=".Controller.home.my_profile" />
         <activity android:name=".Controller.intro.SampleSlide" />
         <activity android:name=".Controller.home.termscondition" />
+        <activity android:name=".Controller.home.remindme.ReminderAddActivity"
+            android:label="@string/title_activity_add_reminder"/>
+        <activity android:name=".Controller.home.remindme.MainActivity"
+            android:label="Reminder"/>
+
+        <activity android:name=".Controller.home.remindme.ReminderEditActivity"
+            android:label="@string/title_activity_edit_reminder"/>
+
+        <activity android:name=".Controller.home.remindme.LicencesActivity"
+            android:label="@string/title_activity_licenses"/>
+
+        <receiver android:name=".Controller.home.remindme.AlarmReceiver"/>
+
+        <receiver android:name=".Controller.home.remindme.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
         <activity android:name=".Controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

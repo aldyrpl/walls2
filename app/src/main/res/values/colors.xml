@@ -27,4 +27,11 @@
     <color name="colorPrimary">#2c3e50</color>
     <color name="colorPrimaryDark">#1B3147</color>
     <color name="colorAccent">#3498db</color>
+
+    <color name="toolbar_title">#ffffff</color>
+    <color name="primary">#ff0057</color>
+    <color name="primary_dark">#ff0057</color>
+    <color name="accent">#ff0057</color>
+    <color name="control_normal">#ffffff</color>
+    <color name="fab_pressed">#ffffff</color>
 </resources>

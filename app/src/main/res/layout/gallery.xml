@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
@@ -13,7 +14,7 @@
         android:paddingTop="@dimen/sell_size_twfive_normal"
         android:paddingLeft="@dimen/sell_size_twfive_normal"
         android:paddingRight="@dimen/sell_size_twnty_normal"
-        android:background="@drawable/home_header_red_round"
+        android:background="#ff0057"
         >
         <TextView
             android:layout_width="0dp"
@@ -43,5 +44,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
-</LinearLayout>
+    <com.getbase.floatingactionbutton.AddFloatingActionButton
+        android:id="@+id/upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:clickable="true"
+        fab:fab_colorNormal="@color/accent"
+        fab:fab_colorPressed="@color/fab_pressed"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"/>
+</RelativeLayout>

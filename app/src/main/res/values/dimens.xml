@@ -192,4 +192,7 @@
     <dimen name="ecommerce_sell_size_therty_sp_normal">30sp</dimen>
 
     <dimen name="toolbar_height">25dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>
