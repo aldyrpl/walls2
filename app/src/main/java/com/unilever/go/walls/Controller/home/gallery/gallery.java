@@ -6,6 +6,7 @@ import com.unilever.go.walls.Controller.Retrofit.GalleryAPI;
 import com.unilever.go.walls.Controller.Retrofit.galleryClassJson;
 import com.unilever.go.walls.Controller.Retrofit.uploadImageJson;
 import com.unilever.go.walls.Controller.home.remindme.ReminderAddActivity;
+import com.unilever.go.walls.Controller.intro.login;
 import com.unilever.go.walls.R;
 
 import android.Manifest;
@@ -131,7 +132,7 @@ public class gallery extends AppCompatActivity{
                 .build();
 
         GalleryAPI api = retrofit.create(GalleryAPI.class);
-        Call<galleryClassJson> call = api.getGallery("1", "1","100","0");
+        Call<galleryClassJson> call = api.getGallery(login.dataUser.getId(),"1", "1","100","0");
         call.enqueue(new Callback<galleryClassJson>() {
             @Override
             public void onResponse(Call<galleryClassJson> call, Response<galleryClassJson> response) {
@@ -216,7 +217,7 @@ public class gallery extends AppCompatActivity{
 //        RequestBody description = RequestBody.create(MediaType.parse("text/plain"), "image-type");
         RequestBody ref_menu_category_id = RequestBody.create(MediaType.parse("text/plain"), "1");
         Log.d(gallery.class.getSimpleName(), "yow 2");
-        RequestBody user_id = RequestBody.create(MediaType.parse("text/plain"), "21");
+        RequestBody user_id = RequestBody.create(MediaType.parse("text/plain"), login.dataUser.getId());
         Call<uploadImageJson> call = uploadAPIs.uploadImage(part, ref_menu_category_id, user_id);
         call.enqueue(new Callback<uploadImageJson>() {
             @Override

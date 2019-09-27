@@ -32,6 +32,7 @@ public class profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        is_this  = this;
         setContentView(R.layout.profile);
         TextView txtHomeHeaderLocation = findViewById(R.id.txtHomeHeaderLocation);
         txtHomeHeaderLocation.setText(login.dataUser.getGroupName() + " - " + home.stateName);
@@ -71,7 +72,7 @@ public class profile extends AppCompatActivity {
         ImageView imgHomeCalendar = findViewById(R.id.imgHomeCalendar);
         imgHomeCalendar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(is_this, MainActivity.class);
+                Intent intent = new Intent(profile.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -79,7 +80,7 @@ public class profile extends AppCompatActivity {
         ImageView imgHomeCamera = findViewById(R.id.imgHomeCamera);
         imgHomeCamera.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(is_this, gallery.class);
+                Intent intent = new Intent(profile.this, gallery.class);
                 startActivity(intent);
                 finish();
             }

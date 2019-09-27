@@ -52,6 +52,8 @@ public class BootReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        Intent startServiceIntent = new Intent(context, AlarmService.class);
+        context.startService(startServiceIntent);
         if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
 
             ReminderDatabase rb = new ReminderDatabase(context);

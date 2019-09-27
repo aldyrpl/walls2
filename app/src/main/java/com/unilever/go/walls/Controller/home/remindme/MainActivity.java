@@ -17,13 +17,18 @@
 
 package com.unilever.go.walls.Controller.home.remindme;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 //import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -40,6 +45,7 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback;
 import com.bignerdranch.android.multiselector.MultiSelector;
 import com.bignerdranch.android.multiselector.SwappingHolder;
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.unilever.go.walls.Controller.home.gallery.gallery;
 import com.unilever.go.walls.R;
 
 import java.text.DateFormat;
@@ -108,8 +114,31 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize alarm
         mAlarmReceiver = new AlarmReceiver();
+
+        if(isReceiveBootPermission()){
+
+        }
     }
 
+    public  boolean isReceiveBootPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.RECEIVE_BOOT_COMPLETED)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(gallery.class.getSimpleName(),"Permission is granted");
+                return true;
+            } else {
+
+                Log.v(gallery.class.getSimpleName(),"Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECEIVE_BOOT_COMPLETED}, 1);
+                finish();
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(gallery.class.getSimpleName(),"Permission is granted");
+            return true;
+        }
+    }
     // Create context menu for long press actions
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {

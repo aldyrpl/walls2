@@ -54,11 +54,16 @@
 
         <receiver android:name=".Controller.home.remindme.AlarmReceiver"/>
 
-        <receiver android:name=".Controller.home.remindme.BootReceiver">
+        <receiver android:process=":remote" android:name=".Controller.home.remindme.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
+        <service
+            android:name=".Controller.home.remindme.AlarmService"
+            android:enabled="true"
+            android:process=":your_service" >
+        </service>
         <activity android:name=".Controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -139,5 +144,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 </manifest>

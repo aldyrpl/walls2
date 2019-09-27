@@ -35,12 +35,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.unilever.go.walls.Controller.Retrofit.EventAPI;
+import com.unilever.go.walls.Controller.Retrofit.EventClassJson;
+import com.unilever.go.walls.Controller.Retrofit.GalleryAPI;
+import com.unilever.go.walls.Controller.Retrofit.galleryClassJson;
+import com.unilever.go.walls.Controller.home.gallery.DataAdapter;
+import com.unilever.go.walls.Controller.intro.login;
 import com.unilever.go.walls.R;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class ReminderAddActivity extends AppCompatActivity implements
@@ -62,6 +75,8 @@ public class ReminderAddActivity extends AppCompatActivity implements
     private String mRepeatNo;
     private String mRepeatType;
     private String mActive;
+
+    public static final String URL = "http://13.228.214.159/mosii/belajar_api/api/";
 
     // Values for orientation change
     private static final String KEY_TITLE = "title_key";
@@ -378,6 +393,25 @@ public class ReminderAddActivity extends AppCompatActivity implements
             }
         }
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        EventAPI api = retrofit.create(EventAPI.class);
+        Call<EventClassJson> call = api.addEvent("1","1", mTitle,mDate,mTime,mActive);
+        call.enqueue(new Callback<EventClassJson>() {
+            @Override
+            public void onResponse(Call<EventClassJson> call, Response<EventClassJson> response) {
+
+                Log.d(ReminderAddActivity.class.getSimpleName(), "result : " + response.body().getMessage());
+
+            }
+
+            @Override
+            public void onFailure(Call<EventClassJson> call, Throwable t) {
+            }
+        });
         // Create toast to confirm new reminder
         Toast.makeText(getApplicationContext(), "Saved",
                 Toast.LENGTH_SHORT).show();

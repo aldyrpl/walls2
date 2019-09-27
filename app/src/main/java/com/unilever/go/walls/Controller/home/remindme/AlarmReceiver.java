@@ -19,6 +19,7 @@ package com.unilever.go.walls.Controller.home.remindme;
 
 
 import android.app.AlarmManager;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
@@ -27,9 +28,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
+import android.os.Build;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.WakefulBroadcastReceiver;
+import android.widget.Toast;
 
 import com.unilever.go.walls.R;
 
@@ -61,13 +65,36 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
                 .setContentTitle(context.getResources().getString(R.string.app_name))
                 .setTicker(mTitle)
                 .setContentText(mTitle)
-                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setContentIntent(mClick)
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM))
                 .setAutoCancel(true)
-                .setOnlyAlertOnce(true);
+                .setOnlyAlertOnce(false);
 
         NotificationManager nManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            NotificationManager mNotificationManager =
+                    (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
+            String channelId = "Your_channel_id";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(
+                    channelId,
+                    "Channel human readable title",
+                    importance);
+            mNotificationManager.createNotificationChannel(channel);
+            mBuilder.setChannelId(channelId);
+        }
         nManager.notify(mReceivedID, mBuilder.build());
+
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, AlarmReceiver.class.getSimpleName());
+        wl.acquire();
+
+        // Put here YOUR code.
+        Toast.makeText(context, mTitle, Toast.LENGTH_LONG).show(); // For example
+
+        wl.release();
     }
 
     public void setAlarm(Context context, Calendar calendar, int ID) {
@@ -76,7 +103,7 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
         // Put Reminder ID in Intent Extra
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.putExtra(ReminderEditActivity.EXTRA_REMINDER_ID, Integer.toString(ID));
-        mPendingIntent = PendingIntent.getBroadcast(context, ID, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        mPendingIntent = PendingIntent.getBroadcast(context, ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Calculate notification time
         Calendar c = Calendar.getInstance();
@@ -84,7 +111,7 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
         long diffTime = calendar.getTimeInMillis() - currentTime;
 
         // Start alarm using notification time
-        mAlarmManager.set(AlarmManager.ELAPSED_REALTIME,
+        mAlarmManager.set(AlarmManager.RTC_WAKEUP,
                 SystemClock.elapsedRealtime() + diffTime,
                 mPendingIntent);
 
@@ -110,7 +137,7 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
         long diffTime = calendar.getTimeInMillis() - currentTime;
 
         // Start alarm using initial notification time and repeat interval time
-        mAlarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,
+        mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
                 SystemClock.elapsedRealtime() + diffTime,
                 RepeatTime , mPendingIntent);
 
