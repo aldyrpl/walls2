@@ -29,23 +29,36 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.unilever.go.walls.Controller.Retrofit.EventAPI;
+import com.unilever.go.walls.Controller.Retrofit.jsonClass.eventCategoryJsonClass;
 import com.unilever.go.walls.R;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class ReminderEditActivity extends AppCompatActivity implements
         TimePickerDialog.OnTimeSetListener,
-        DatePickerDialog.OnDateSetListener{
+        DatePickerDialog.OnDateSetListener,
+        AdapterView.OnItemSelectedListener{
 
     private Toolbar mToolbar;
     private EditText mTitleText;
@@ -74,6 +87,7 @@ public class ReminderEditActivity extends AppCompatActivity implements
     public static final String EXTRA_REMINDER_ID = "Reminder_ID";
 
     // Values for orientation change
+    public static final String URL = "http://13.228.214.159/mosii/belajar_api/api/";
     private static final String KEY_TITLE = "title_key";
     private static final String KEY_TIME = "time_key";
     private static final String KEY_DATE = "date_key";
@@ -88,7 +102,11 @@ public class ReminderEditActivity extends AppCompatActivity implements
     private static final long milDay = 86400000L;
     private static final long milWeek = 604800000L;
     private static final long milMonth = 2592000000L;
-
+    public static String idCategory = "";
+    eventCategoryJsonClass.Result eventResult;
+    public ArrayList<String> categoryName = new ArrayList<String>();
+    Spinner spinner;
+//    String idCategoryList = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -212,6 +230,60 @@ public class ReminderEditActivity extends AppCompatActivity implements
         mYear = Integer.parseInt(mDateSplit[2]);
         mHour = Integer.parseInt(mTimeSplit[0]);
         mMinute = Integer.parseInt(mTimeSplit[1]);
+
+        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
+        getCategory();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                // On selecting a spinner item
+//                String item = parent.getItemAtPosition(position).toString();
+//
+//                // Showing selected spinner item
+//                Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+        if((position - 1) >= 0) {
+            idCategory = eventResult.getListData().get(position - 1).getId();
+        }
+
+    }
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
+
+    }
+
+    private void getCategory(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        EventAPI api = retrofit.create(EventAPI.class);
+        Call<eventCategoryJsonClass> call = api.getEvent();
+        call.enqueue(new Callback<eventCategoryJsonClass>() {
+            @Override
+            public void onResponse(Call<eventCategoryJsonClass> call, Response<eventCategoryJsonClass> response) {
+                eventResult = response.body().getResult();
+                categoryName.add("Select Task");
+                for(int i =0;i < eventResult.getListData().size();i++){
+                    categoryName.add(eventResult.getListData().get(i).getName());
+                }
+
+
+
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(ReminderEditActivity.this, android.R.layout.simple_spinner_item, categoryName);
+                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner.setAdapter(dataAdapter);
+                int spinnerPosition = dataAdapter.getPosition(idCategory);
+                spinner.setSelection(spinnerPosition);
+            }
+
+            @Override
+            public void onFailure(Call<eventCategoryJsonClass> call, Throwable t) {
+                return;
+//                finish();
+            }
+        });
     }
 
     // To save state on device rotation

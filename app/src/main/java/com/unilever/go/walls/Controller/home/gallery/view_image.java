@@ -1,47 +1,21 @@
 package com.unilever.go.walls.Controller.home.gallery;
 
-import com.cometchat.pro.constants.CometChatConstants;
-import com.cometchat.pro.core.CometChat;
-import com.cometchat.pro.exceptions.CometChatException;
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.unilever.go.walls.Activity.CometChatActivity;
-import com.unilever.go.walls.Contracts.StringContract;
-import com.unilever.go.walls.Controller.Retrofit.GalleryAPI;
-import com.unilever.go.walls.Controller.Retrofit.LoginAPI;
-import com.unilever.go.walls.Controller.Retrofit.galleryClassJson;
-import com.unilever.go.walls.Controller.Retrofit.loginClassJson;
-import com.unilever.go.walls.Controller.SQL.DatabaseHandler;
-import com.unilever.go.walls.Controller.SQL.user_model;
-import com.unilever.go.walls.Controller.home.home;
-import com.unilever.go.walls.Controller.intro.login;
-import com.unilever.go.walls.Presenters.LoginAcitivityPresenter;
+import com.unilever.go.walls.Controller.Retrofit.jsonClass.galleryClassJson;
 import com.unilever.go.walls.R;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class view_image extends AppCompatActivity {
     android.app.Activity is_this;

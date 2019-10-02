@@ -60,7 +60,6 @@
     </LinearLayout>
 
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_below="@id/add_reminder_layout_top"
         android:layout_height="fill_parent">
@@ -80,7 +79,27 @@
                 android:layout_marginLeft="72dp"
                 android:textColor="#5b6883"
                 android:layout_height="72dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_height="72dp">
 
+                <ImageView
+                    android:id="@+id/listtask_icon"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/listtask"
+                    android:layout_centerVertical="true" />
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_toRightOf="@id/listtask_icon"
+                android:textColor="@color/secondaryColor"
+                android:layout_height="72dp" />
+            </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:clickable="true"
@@ -170,42 +189,43 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="match_parent"
                 android:id="@+id/repeat"
-                android:layout_height="72dp">
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/repeat_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
-                    android:src="@drawable/ic_sync_grey600_24dp"
-                    android:layout_centerVertical="true" />
+                    android:src="@drawable/ic_sync_grey600_24dp" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:orientation="vertical"
                     android:id="@+id/repeat_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/repeat_icon"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/repeat_text"
-                        android:textColor="@color/secondaryColor"
                         android:layout_width="wrap_content"
-                        android:textSize="15dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/repeat" />
+                        android:text="@string/repeat"
+                        android:textColor="@color/secondaryColor"
+                        android:textSize="15dp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
                         android:id="@+id/set_repeat"
-                        android:textSize="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textColor="#5b6883"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="15dp" />
 
                 </LinearLayout>
 
@@ -213,100 +233,102 @@
                     android:id="@+id/repeat_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="16dp"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="8dp"
-                    android:onClick="onSwitchRepeat"
+                    android:layout_marginRight="16dp"
                     android:checked="true"
-                    android:textOn="On"
-                    android:textOff="Off"/>
+                    android:onClick="onSwitchRepeat"
+                    android:textOff="Off"
+                    android:textOn="On" />
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="match_parent"
                 android:id="@+id/RepeatNo"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:onClick="setRepeatNo"
-                android:background="?android:attr/selectableItemBackground"
-                android:layout_height="72dp">
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/repeat_no_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
-                    android:src="@drawable/ic_unfold_more_grey600_24dp"
-                    android:layout_centerVertical="true" />
+                    android:src="@drawable/ic_unfold_more_grey600_24dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/repeat_no_icon"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/repeat_no_text"
-                        android:textColor="@color/secondaryColor"
                         android:layout_width="wrap_content"
-                        android:textSize="15dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/repeat_no" />
+                        android:text="@string/repeat_no"
+                        android:textColor="@color/secondaryColor"
+                        android:textSize="15dp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
                         android:id="@+id/set_repeat_no"
-                        android:textSize="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textColor="#5b6883"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="15dp" />
 
                 </LinearLayout>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="match_parent"
                 android:id="@+id/RepeatType"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:onClick="selectRepeatType"
-                android:background="?android:attr/selectableItemBackground"
-                android:layout_height="72dp">
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/repeat_type_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
-                    android:src="@drawable/ic_subject_grey600_24dp"
-                    android:layout_centerVertical="true" />
+                    android:src="@drawable/ic_subject_grey600_24dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/repeat_type_icon"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/repeat_type_text"
-                        android:textColor="@color/secondaryColor"
                         android:layout_width="wrap_content"
-                        android:textSize="15dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/repeat_type" />
+                        android:text="@string/repeat_type"
+                        android:textColor="@color/secondaryColor"
+                        android:textSize="15dp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
                         android:id="@+id/set_repeat_type"
-                        android:textSize="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textColor="#5b6883"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="15dp" />
 
                 </LinearLayout>
 

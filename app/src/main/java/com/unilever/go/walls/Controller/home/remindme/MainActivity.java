@@ -45,17 +45,28 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback;
 import com.bignerdranch.android.multiselector.MultiSelector;
 import com.bignerdranch.android.multiselector.SwappingHolder;
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.unilever.go.walls.Controller.Retrofit.EventAPI;
+import com.unilever.go.walls.Controller.Retrofit.jsonClass.getEventClassJson;
 import com.unilever.go.walls.Controller.home.gallery.gallery;
+import com.unilever.go.walls.Controller.intro.login;
 import com.unilever.go.walls.R;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -69,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
     private ReminderDatabase rb;
     private MultiSelector mMultiSelector = new MultiSelector();
     private AlarmReceiver mAlarmReceiver;
-
+    public static final String URL = "http://13.228.214.159/mosii/belajar_api/api/";
+    public ArrayList<String> idCategory = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,23 +93,21 @@ public class MainActivity extends AppCompatActivity {
         // Initialize views
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mAddReminderButton = (FloatingActionButton) findViewById(R.id.add_reminder);
-        mList = (RecyclerView) findViewById(R.id.reminder_list);
-        mNoReminderView = (TextView) findViewById(R.id.no_reminder_text);
 
+        mNoReminderView = (TextView) findViewById(R.id.no_reminder_text);
+        mList = (RecyclerView) findViewById(R.id.reminder_list);
+        mList.setLayoutManager(getLayoutManager());
         // To check is there are saved reminders
         // If there are no reminders display a message asking the user to create reminders
-        List<Reminder> mTest = rb.getAllReminders();
+//        List<Reminder> mTest = rb.getAllReminders();
+//
+//        if (mTest.isEmpty()) {
+//            mNoReminderView.setVisibility(View.VISIBLE);
+//        }else{
+//
+//        }
+//        String a = mTest.size().toString();
 
-        if (mTest.isEmpty()) {
-            mNoReminderView.setVisibility(View.VISIBLE);
-        }
-
-        // Create recycler view
-        mList.setLayoutManager(getLayoutManager());
-        registerForContextMenu(mList);
-        mAdapter = new SimpleAdapter();
-        mAdapter.setItemCount(getDefaultItemCount());
-        mList.setAdapter(mAdapter);
 
         // Setup toolbar
         setSupportActionBar(mToolbar);
@@ -118,6 +128,127 @@ public class MainActivity extends AppCompatActivity {
         if(isReceiveBootPermission()){
 
         }
+        getEventFromAPI();
+    }
+
+    private void getEventFromAPI(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        EventAPI api = retrofit.create(EventAPI.class);
+        Call<getEventClassJson> call = api.getEvent("100", "0");
+        call.enqueue(new Callback<getEventClassJson>() {
+            @Override
+            public void onResponse(Call<getEventClassJson> call, Response<getEventClassJson> response) {
+                List<Reminder> mTest = rb.getAllReminders();
+                try {
+                    if (mTest.size() != response.body().getResult().getListData().size()) {
+                        rb.deleteAllReminder();
+                        for (int i = 0; i < response.body().getResult().getListData().size(); i++) {
+                            String mTitle = response.body().getResult().getListData().get(i).getDescription();
+                            String mDate = response.body().getResult().getListData().get(i).getDueDate();
+                            String mTime = response.body().getResult().getListData().get(i).getDueTime();
+                            String mRepeat = "1";
+                            String mRepeatNo = "1";
+                            String mRepeatType = "Minute";
+                            String mActive = response.body().getResult().getListData().get(i).getIsAlarm();
+                            if (mActive == "0") {
+                                mActive = "false";
+                            } else {
+                                mActive = "true";
+                            }
+
+//                        SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd");
+                            try {
+//                            Date date1=formatter1.parse(mDate);
+                                String OLD_FORMAT = "yyyy-MM-dd";
+                                String NEW_FORMAT = "dd/MM/yyyy";
+                                SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
+                                Date d = sdf.parse(mDate);
+                                sdf.applyPattern(NEW_FORMAT);
+                                mDate = sdf.format(d);
+                                Log.d("datenya ", mDate);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            Log.d("titlenya ", "tes");
+                            idCategory.add(response.body().getResult().getListData().get(i).getTitle());
+                            Log.d("titlenyaa ", response.body().getResult().getListData().get(i).getTitle());
+                            saveReminder(mTitle, mDate, mTime, mRepeat, mRepeatNo, mRepeatType, mActive);
+                        }
+//                     Create recycler view
+
+                        registerForContextMenu(mList);
+                        mAdapter = new SimpleAdapter();
+                        mAdapter.setItemCount(getDefaultItemCount());
+                        mList.setAdapter(mAdapter);
+                    } else {
+                        // Create recycler view
+                        for (int i = 0; i < response.body().getResult().getListData().size(); i++) {
+                            idCategory.add(response.body().getResult().getListData().get(i).getTitle());
+                        }
+                        mList.setLayoutManager(getLayoutManager());
+                        registerForContextMenu(mList);
+                        mAdapter = new SimpleAdapter();
+                        mAdapter.setItemCount(getDefaultItemCount());
+                        mList.setAdapter(mAdapter);
+                    }
+                }catch (Exception e){
+                    mNoReminderView.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<getEventClassJson> call, Throwable t) {
+            }
+        });
+    }
+
+    public void saveReminder(String mTitle, String mDate, String mTime, String mRepeat, String mRepeatNo, String mRepeatType, String mActive){
+        ReminderDatabase rb = new ReminderDatabase(this);
+
+        // Creating Reminder
+
+
+        int ID = rb.addReminder(new Reminder(mTitle, mDate, mTime, mRepeat, mRepeatNo, mRepeatType, mActive));
+        Calendar mCalendar = Calendar.getInstance();
+        int mYear, mMonth, mHour, mMinute, mDay;
+        long mRepeatTime = 60000L;
+
+        long milMinute = 60000L;
+        long milHour = 3600000L;
+        long milDay = 86400000L;
+        long milWeek = 604800000L;
+        long milMonth = 2592000000L;
+
+        mHour = mCalendar.get(Calendar.HOUR_OF_DAY);
+        mMinute = mCalendar.get(Calendar.MINUTE);
+        mYear = mCalendar.get(Calendar.YEAR);
+        mMonth = mCalendar.get(Calendar.MONTH) + 1;
+        mDay = mCalendar.get(Calendar.DATE);
+
+        mDate = mDay + "/" + mMonth + "/" + mYear;
+        mTime = mHour + ":" + mMinute;
+
+        mCalendar.set(Calendar.MONTH, --mMonth);
+        mCalendar.set(Calendar.YEAR, mYear);
+        mCalendar.set(Calendar.DAY_OF_MONTH, mDay);
+        mCalendar.set(Calendar.HOUR_OF_DAY, mHour);
+        mCalendar.set(Calendar.MINUTE, mMinute);
+        mCalendar.set(Calendar.SECOND, 0);
+
+        // Create a new notification
+        if (mActive.equals("true")) {
+            if (mRepeat.equals("true")) {
+                new AlarmReceiver().setRepeatAlarm(getApplicationContext(), mCalendar, ID, mRepeatTime);
+            } else if (mRepeat.equals("false")) {
+                new AlarmReceiver().setAlarm(getApplicationContext(), mCalendar, ID);
+            }
+        }
+
+
     }
 
     public  boolean isReceiveBootPermission() {
@@ -226,6 +357,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, ReminderEditActivity.class);
         i.putExtra(ReminderEditActivity.EXTRA_REMINDER_ID, mStringClickID);
         startActivityForResult(i, 1);
+        Log.d("idnyacuy ",Integer.toString(mClickID));
+        ReminderEditActivity.idCategory = idCategory.get(mClickID - 1);
+        Log.d("idCategory ", ReminderEditActivity.idCategory);
     }
 
     @Override
@@ -241,15 +375,7 @@ public class MainActivity extends AppCompatActivity {
 
         // To check is there are saved reminders
         // If there are no reminders display a message asking the user to create reminders
-        List<Reminder> mTest = rb.getAllReminders();
-
-        if (mTest.isEmpty()) {
-            mNoReminderView.setVisibility(View.VISIBLE);
-        } else {
-            mNoReminderView.setVisibility(View.GONE);
-        }
-
-        mAdapter.setItemCount(getDefaultItemCount());
+        getEventFromAPI();
     }
 
     // Layout manager for recycler view

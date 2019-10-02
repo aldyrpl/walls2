@@ -1,5 +1,8 @@
 package com.unilever.go.walls.Controller.Retrofit;
 
+import com.unilever.go.walls.Controller.Retrofit.jsonClass.loginClassJson;
+import com.unilever.go.walls.Controller.Retrofit.jsonClass.myProfileClassJson;
+import com.unilever.go.walls.Controller.Retrofit.jsonClass.registerJson;
 import com.unilever.go.walls.Controller.intro.login;
 
 import retrofit2.Call;
@@ -22,7 +25,7 @@ public interface LoginAPI {
     @FormUrlEncoded
     @POST("login")
     Call<loginClassJson> login(@Field("email") String email,
-                                @Field("password") String password);
+                               @Field("password") String password);
 
     @Headers({"GOWALLS-API-KEY: 6fba6be0-da86-4842-a7c6-80091dccb44f","Content-Type: application/x-www-form-urlencoded"})
     @FormUrlEncoded
@@ -36,4 +39,9 @@ public interface LoginAPI {
                                 @Field("userpass") String userpass,
                                 @Field("re_pass") String re_pass,
                                 @Field("email") String email);
+
+    @Headers({"GOWALLS-API-KEY: 6fba6be0-da86-4842-a7c6-80091dccb44f","Content-Type: application/x-www-form-urlencoded"})
+    @FormUrlEncoded
+    @POST("my-profile")
+    Call<myProfileClassJson> getProfile(@Field("id_auth_user") String id_auth_user);
 }

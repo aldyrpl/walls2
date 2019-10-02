@@ -1,4 +1,4 @@
-package com.unilever.go.walls.Controller.Retrofit;
+package com.unilever.go.walls.Controller.Retrofit.jsonClass;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

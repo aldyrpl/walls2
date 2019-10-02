@@ -1,28 +1,21 @@
 package com.unilever.go.walls.Controller;
 
 import com.cometchat.pro.constants.CometChatConstants;
-import com.cometchat.pro.core.CometChat;
-import com.cometchat.pro.exceptions.CometChatException;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.unilever.go.walls.Contracts.StringContract;
 import com.unilever.go.walls.Controller.Retrofit.LoginAPI;
-import com.unilever.go.walls.Controller.Retrofit.loginClassJson;
+import com.unilever.go.walls.Controller.Retrofit.jsonClass.loginClassJson;
 import com.unilever.go.walls.Controller.SQL.DatabaseHandler;
 import com.unilever.go.walls.Controller.SQL.user_model;
 import com.unilever.go.walls.Controller.home.home;
 import com.unilever.go.walls.Controller.intro.intro;
 import com.unilever.go.walls.Controller.intro.login;
-import com.unilever.go.walls.Presenters.LoginAcitivityPresenter;
 import com.unilever.go.walls.R;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.List;

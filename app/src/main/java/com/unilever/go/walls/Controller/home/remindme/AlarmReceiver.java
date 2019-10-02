@@ -33,6 +33,7 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.WakefulBroadcastReceiver;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.unilever.go.walls.R;
@@ -50,7 +51,13 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
 
         // Get notification title from Reminder Database
         ReminderDatabase rb = new ReminderDatabase(context);
-        Reminder reminder = rb.getReminder(mReceivedID);
+        Reminder reminder = null;
+        try {
+            reminder = rb.getReminder(mReceivedID);
+        }catch (Exception e){
+            Log.d("error ", e.toString());
+            return;
+        }
         String mTitle = reminder.getTitle();
 
         // Create intent to open ReminderEditActivity on notification click

@@ -13,8 +13,8 @@ android {
         applicationId "com.unilever.go.walls"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 2007
-        versionName "2.7"
+        versionCode 2008
+        versionName "2.8"
         multiDexEnabled true
         renderscriptSupportModeEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

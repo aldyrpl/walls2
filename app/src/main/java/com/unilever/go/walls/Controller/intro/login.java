@@ -1,12 +1,10 @@
 package com.unilever.go.walls.Controller.intro;
 import com.cometchat.pro.constants.CometChatConstants;
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.unilever.go.walls.Activity.CometChatActivity;
 import com.unilever.go.walls.Contracts.LoginActivityContract;
 import com.unilever.go.walls.Contracts.StringContract;
-import com.unilever.go.walls.Controller.MainActivity;
 import com.unilever.go.walls.Controller.Retrofit.LoginAPI;
-import com.unilever.go.walls.Controller.Retrofit.loginClassJson;
+import com.unilever.go.walls.Controller.Retrofit.jsonClass.loginClassJson;
 import com.unilever.go.walls.Controller.SQL.*;
 import com.unilever.go.walls.Controller.home.home;
 import com.unilever.go.walls.Presenters.LoginAcitivityPresenter;

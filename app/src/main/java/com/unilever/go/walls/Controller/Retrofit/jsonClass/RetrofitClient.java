@@ -1,4 +1,4 @@
-package com.unilever.go.walls.Controller.Retrofit;
+package com.unilever.go.walls.Controller.Retrofit.jsonClass;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

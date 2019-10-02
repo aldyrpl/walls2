@@ -29,17 +29,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.unilever.go.walls.Controller.Retrofit.EventAPI;
-import com.unilever.go.walls.Controller.Retrofit.EventClassJson;
-import com.unilever.go.walls.Controller.Retrofit.GalleryAPI;
-import com.unilever.go.walls.Controller.Retrofit.galleryClassJson;
-import com.unilever.go.walls.Controller.home.gallery.DataAdapter;
+import com.unilever.go.walls.Controller.Retrofit.jsonClass.EventClassJson;
+import com.unilever.go.walls.Controller.Retrofit.jsonClass.eventCategoryJsonClass;
 import com.unilever.go.walls.Controller.intro.login;
 import com.unilever.go.walls.R;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
@@ -48,6 +49,8 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -58,7 +61,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ReminderAddActivity extends AppCompatActivity implements
         TimePickerDialog.OnTimeSetListener,
-        DatePickerDialog.OnDateSetListener{
+        DatePickerDialog.OnDateSetListener,
+        AdapterView.OnItemSelectedListener
+        {
 
     private Toolbar mToolbar;
     private EditText mTitleText;
@@ -94,7 +99,10 @@ public class ReminderAddActivity extends AppCompatActivity implements
     private static final long milWeek = 604800000L;
     private static final long milMonth = 2592000000L;
 
-
+    eventCategoryJsonClass.Result eventResult;
+    public ArrayList<String> categoryName = new ArrayList<String>();
+    Spinner spinner;
+    String idCategory = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -194,7 +202,28 @@ public class ReminderAddActivity extends AppCompatActivity implements
             mFAB1.setVisibility(View.GONE);
             mFAB2.setVisibility(View.VISIBLE);
         }
+        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
+        getCategory();
+
     }
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                // On selecting a spinner item
+//                String item = parent.getItemAtPosition(position).toString();
+//
+//                // Showing selected spinner item
+//                Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+                if((position - 1) >= 0) {
+                    idCategory = eventResult.getListData().get(position - 1).getId();
+                }
+
+            }
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
 
     // To save state on device rotation
     @Override
@@ -353,13 +382,7 @@ public class ReminderAddActivity extends AppCompatActivity implements
         ReminderDatabase rb = new ReminderDatabase(this);
 
         // Creating Reminder
-        Log.d(ReminderAddActivity.class.getSimpleName(),"title = " + mTitle);
-        Log.d(ReminderAddActivity.class.getSimpleName(),"mDate = " + mDate);
-        Log.d(ReminderAddActivity.class.getSimpleName(),"mTime = " + mTime);
-        Log.d(ReminderAddActivity.class.getSimpleName(),"mRepeat = " + mRepeat);
-        Log.d(ReminderAddActivity.class.getSimpleName(),"mRepeatNo = " + mRepeatNo);
-        Log.d(ReminderAddActivity.class.getSimpleName(),"mRepeatType = " + mRepeatType);
-        Log.d(ReminderAddActivity.class.getSimpleName(),"mActive = " + mActive);
+
 
         int ID = rb.addReminder(new Reminder(mTitle, mDate, mTime, mRepeat, mRepeatNo, mRepeatType, mActive));
 
@@ -399,13 +422,25 @@ public class ReminderAddActivity extends AppCompatActivity implements
                 .build();
 
         EventAPI api = retrofit.create(EventAPI.class);
-        Call<EventClassJson> call = api.addEvent("1","1", mTitle,mDate,mTime,mActive);
+        Log.d(ReminderAddActivity.class.getSimpleName(),"title = " + mTitle);
+        Log.d(ReminderAddActivity.class.getSimpleName(),"mDate = " + mDate);
+        Log.d(ReminderAddActivity.class.getSimpleName(),"mTime = " + mTime);
+        Log.d(ReminderAddActivity.class.getSimpleName(),"mActive = " + mActive);
+        Log.d(ReminderAddActivity.class.getSimpleName(),"login.dataUser.getId() = " + login.dataUser.getId());
+//        Log.d(ReminderAddActivity.class.getSimpleName(),"mRepeatType = " + mRepeatType);
+//        Log.d(ReminderAddActivity.class.getSimpleName(),"mActive = " + mActive);
+        if(mActive == "true"){
+            mActive = "1";
+        }else{
+            mActive = "0";
+        }
+        Call<EventClassJson> call = api.addEvent(idCategory,"1", mTitle,mDate,mTime,mActive,login.dataUser.getId());
         call.enqueue(new Callback<EventClassJson>() {
             @Override
             public void onResponse(Call<EventClassJson> call, Response<EventClassJson> response) {
 
-                Log.d(ReminderAddActivity.class.getSimpleName(), "result : " + response.body().getMessage());
-
+                Log.d(ReminderAddActivity.class.getSimpleName(), "result : " + response.raw());
+                Log.d(ReminderAddActivity.class.getSimpleName(), "result : " + response.body());
             }
 
             @Override
@@ -417,6 +452,37 @@ public class ReminderAddActivity extends AppCompatActivity implements
                 Toast.LENGTH_SHORT).show();
 
         onBackPressed();
+    }
+
+    private void getCategory(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        EventAPI api = retrofit.create(EventAPI.class);
+        Call<eventCategoryJsonClass> call = api.getEvent();
+        call.enqueue(new Callback<eventCategoryJsonClass>() {
+            @Override
+            public void onResponse(Call<eventCategoryJsonClass> call, Response<eventCategoryJsonClass> response) {
+                eventResult = response.body().getResult();
+                categoryName.add("Select Task");
+                for(int i =0;i < eventResult.getListData().size();i++){
+                    categoryName.add(eventResult.getListData().get(i).getName());
+                }
+
+
+
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(ReminderAddActivity.this, android.R.layout.simple_spinner_item, categoryName);
+                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner.setAdapter(dataAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<eventCategoryJsonClass> call, Throwable t) {
+                return;
+//                finish();
+            }
+        });
     }
 
     // On pressing the back button

@@ -190,4 +190,11 @@ public class ReminderDatabase extends SQLiteOpenHelper {
                 new String[]{String.valueOf(reminder.getID())});
         db.close();
     }
+
+    // Deleting single Reminder
+    public void deleteAllReminder(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_REMINDERS,"",null);
+        db.close();
+    }
 }
