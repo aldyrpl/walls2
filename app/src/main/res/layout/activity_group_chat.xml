@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <com.unilever.go.walls.CustomView.CircleImageView
+            <com.unilever.go.wallsopsi1.CustomView.CircleImageView
                 android:id="@+id/contact_pic"
                 android:layout_width="35dp"
                 android:layout_height="35dp"

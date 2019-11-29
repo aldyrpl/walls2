@@ -65,7 +65,7 @@
             android:textColorHint="#cccccc"/>
 
 
-            <com.unilever.go.walls.CustomView.RecordMicButton
+            <com.unilever.go.wallsopsi1.CustomView.RecordMicButton
                 android:id="@+id/record_button"
                 android:layout_width="45dp"
                 android:layout_height="30dp"
@@ -75,10 +75,10 @@
                 android:layout_centerVertical="true"
                 android:layout_toStartOf="@id/buttonSendMessage"
                 android:background="@android:color/transparent">
-            </com.unilever.go.walls.CustomView.RecordMicButton>
+            </com.unilever.go.wallsopsi1.CustomView.RecordMicButton>
 
 
-            <com.unilever.go.walls.CustomView.RecordAudio
+            <com.unilever.go.wallsopsi1.CustomView.RecordAudio
                 android:id="@+id/record_audio_view"
                 android:layout_toStartOf="@id/record_button"
                 android:layout_toEndOf="@id/iv_attchment"
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-            </com.unilever.go.walls.CustomView.RecordAudio>
+            </com.unilever.go.wallsopsi1.CustomView.RecordAudio>
 
     </RelativeLayout>
 

@@ -10,7 +10,7 @@
     style="@style/SelectableItemBackground">
 
 
-    <com.unilever.go.walls.CustomView.CircleImageView
+    <com.unilever.go.wallsopsi1.CustomView.CircleImageView
         android:id="@+id/imageViewUserAvatar"
         android:layout_width="35dp"
         android:layout_height="35dp"

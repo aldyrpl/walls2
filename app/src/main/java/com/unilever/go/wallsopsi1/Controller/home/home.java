@@ -127,7 +127,7 @@ public class home extends AppCompatActivity implements View.OnClickListener {
     static final String LOCAL_PACKAGE = "com.google.android.apps.chrome";
     private static final String EXTRA_CUSTOM_TABS_KEEP_ALIVE =
             "android.support.customtabs.extra.KEEP_ALIVE";
-    String tipe = "1";
+    String tipe = "3";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,11 +156,15 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                     int position, long id) {
                 if(tipe == "1") {
                     if(manufacturer.contains("samsung")) {
-                        Log.d("ini apa", manufacturer);
-                        Intent intent = new Intent(is_this, browser2.class);
-                        startActivity(intent);
+                        try {
+                            Log.d("ini apa", manufacturer);
+                            Intent intent = new Intent(is_this, browser2.class);
+                            startActivity(intent);
 
-                        browser2.value = utility_category[position];
+                            browser2.value = utility_category[position];
+                        }catch (Exception e){
+
+                        }
                     }else{
                         Log.d("ini apaa", manufacturer);
                         FragmentManager fm = getSupportFragmentManager(); // returns from support lib
@@ -169,6 +173,12 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                         dlg.setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogFragmentTheme);
                         browser.value = utility_category[position];
                     }
+                }
+                else if(tipe == "2"){
+                    Intent intent = new Intent(is_this, browser2.class);
+                    startActivity(intent);
+
+                    browser2.value = utility_category[position];
                 }else {
                     customTabsIntent.launchUrl(is_this, Uri.parse(ConvertUrl(utility_category[position])));
                 }
@@ -629,7 +639,13 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                 dlg.show(fm, "tags"); // wants core...
                                 browser.value = ammonia[position];
                             }
-                        }else {
+                        }else if(tipe == "2"){
+                            Intent intent = new Intent(is_this, browser2.class);
+                            startActivity(intent);
+
+                            browser2.value = ammonia[position];
+                        }
+                        else {
                             customTabsIntent.launchUrl(is_this, Uri.parse(ConvertUrl(ammonia[position])));
                         }
                     }
@@ -659,10 +675,14 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                             int position, long id) {
                         if(tipe == "1") {
                             if(manufacturer.contains("samsung")) {
-                                Intent intent = new Intent(is_this, browser2.class);
-                                startActivity(intent);
+                                try{
+                                    Intent intent = new Intent(is_this, browser2.class);
+                                    startActivity(intent);
 
-                                browser2.value = utility_category[position];
+                                    browser2.value = utility_category[position];
+                                }catch (Exception e){
+
+                                }
                             }else {
                                 FragmentManager fm = getSupportFragmentManager(); // returns from support lib
                                 DialogFragment dlg = new browser();
@@ -670,6 +690,11 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                 dlg.show(fm, "tags"); // wants core...
                                 browser.value = utility_category[position];
                             }
+                        }else if(tipe == "2"){
+                            Intent intent = new Intent(is_this, browser2.class);
+                            startActivity(intent);
+
+                            browser2.value = utility_category[position];
                         }else {
                             customTabsIntent.launchUrl(is_this, Uri.parse(ConvertUrl(utility_category[position])));
                         }
@@ -700,10 +725,14 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                             int position, long id) {
                         if(tipe == "1") {
                             if (manufacturer.contains("samsung")) {
-                                Intent intent = new Intent(is_this, browser2.class);
-                                startActivity(intent);
+                                try{
+                                    Intent intent = new Intent(is_this, browser2.class);
+                                    startActivity(intent);
 
-                                browser2.value = electric_category[position];
+                                    browser2.value = electric_category[position];
+                                }catch (Exception e){
+
+                                }
                             } else {
                                 FragmentManager fm = getSupportFragmentManager(); // returns from support lib
                                 DialogFragment dlg = new browser();
@@ -711,6 +740,11 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                 dlg.show(fm, "tags"); // wants core...
                                 browser.value = electric_category[position];
                             }
+                        }else if(tipe == "2"){
+                            Intent intent = new Intent(is_this, browser2.class);
+                            startActivity(intent);
+
+                            browser2.value = electric_category[position];
                         }else {
                             customTabsIntent.launchUrl(is_this, Uri.parse(ConvertUrl(electric_category[position])));
                         }
@@ -741,10 +775,14 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                             int position, long id) {
                         if(tipe == "1") {
                             if(manufacturer.contains("samsung")) {
-                                Intent intent = new Intent(is_this, browser2.class);
-                                startActivity(intent);
+                                try{
+                                    Intent intent = new Intent(is_this, browser2.class);
+                                    startActivity(intent);
 
-                                browser2.value = coldstore_category[position];
+                                    browser2.value = coldstore_category[position];
+                                }catch (Exception e){
+
+                                }
                             }else{
                                 FragmentManager fm = getSupportFragmentManager(); // returns from support lib
                                 DialogFragment dlg = new browser();
@@ -752,6 +790,11 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                 dlg.show(fm, "tags"); // wants core...
                                 browser.value = coldstore_category[position];
                             }
+                        }else if(tipe == "2"){
+                            Intent intent = new Intent(is_this, browser2.class);
+                            startActivity(intent);
+
+                            browser2.value = coldstore_category[position];
                         }else {
                             customTabsIntent.launchUrl(is_this, Uri.parse(ConvertUrl(coldstore_category[position])));
                         }
@@ -782,10 +825,14 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                             int position, long id) {
                         if(tipe == "1") {
                             if(manufacturer.contains("samsung")) {
-                                Intent intent = new Intent(is_this, browser2.class);
-                                startActivity(intent);
+                                try{
+                                    Intent intent = new Intent(is_this, browser2.class);
+                                    startActivity(intent);
 
-                                browser2.value = mixingplant_category[position];
+                                    browser2.value = mixingplant_category[position];
+                                }catch (Exception e){
+
+                                }
                             }else{
                                 FragmentManager fm = getSupportFragmentManager(); // returns from support lib
                                 DialogFragment dlg = new browser();
@@ -793,6 +840,11 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                 dlg.show(fm, "tags"); // wants core...
                                 browser.value = mixingplant_category[position];
                             }
+                        }else if(tipe == "2"){
+                            Intent intent = new Intent(is_this, browser2.class);
+                            startActivity(intent);
+
+                            browser2.value = mixingplant_category[position];
                         }else {
                             customTabsIntent.launchUrl(is_this, Uri.parse(ConvertUrl(mixingplant_category[position])));
                         }
@@ -822,11 +874,14 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                             int position, long id) {
                         if(tipe == "1") {
                             if (manufacturer.contains("samsung")) {
-                                Log.d("ini apa ", "ini samsung");
-                                Intent intent = new Intent(is_this, browser2.class);
-                                startActivity(intent);
+                                try{
+                                    Intent intent = new Intent(is_this, browser2.class);
+                                    startActivity(intent);
 
-                                browser2.value = cctv_category[position];
+                                    browser2.value = cctv_category[position];
+                                }catch (Exception e){
+
+                                }
                             } else {
                                 FragmentManager fm = getSupportFragmentManager(); // returns from support lib
                                 DialogFragment dlg = new browser();
@@ -834,6 +889,11 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                                 dlg.setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogFragmentTheme);
                                 browser.value = cctv_category[position];
                             }
+                        }else if(tipe == "2"){
+                            Intent intent = new Intent(is_this, browser2.class);
+                            startActivity(intent);
+
+                            browser2.value = cctv_category[position];
                         }else {
                             customTabsIntent.launchUrl(is_this, Uri.parse(ConvertUrl(cctv_category[position])));
                         }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -14,10 +14,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/sell_size_nnty_normal"
-
+        android:paddingTop="@dimen/sell_size_eighty_normal"
         android:orientation="vertical">
-
+        <com.unilever.go.wallsopsi1.CustomView.CircleImageView
+            android:id="@+id/fotoprofil"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            app:civ_circle_background_color="@color/secondaryColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/cardview"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintVertical_bias="1.0" />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
@@ -64,35 +75,24 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <Spinner
+            android:id="@+id/jabatanSpinner"
             android:layout_width="match_parent"
+            android:textColor="@color/secondaryColor"
+            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
+            android:layout_height="70dp" />
+
+        <Spinner
+            android:id="@+id/lokasiSpinner"
+            android:layout_width="match_parent"
+            android:textColor="@color/secondaryColor"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
             android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
             android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
-            android:layout_height="70dp">
+            android:layout_height="70dp" />
 
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/jabatan"
-                android:textColor="#3e4a59"
-                android:hint="Jabatan"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
-            android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
-            android:layout_height="70dp">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/lokasi"
-                android:textColor="#3e4a59"
-                android:hint="Lokasi"/>
-
-        </android.support.design.widget.TextInputLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="70dp"

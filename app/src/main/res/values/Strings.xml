@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Go Walls</string>
+    <string name="app_name">Go Walls Opsi 1</string>
 
     <string name="unread_count">1</string>
     <string name="status_message">I\'m available</string>
@@ -84,6 +84,12 @@
     <string name="typing">Typing..</string>
     <string name="is_typing"> is Typing...</string>
     <string name="add_members">Add Members</string>
+    <string-array name="group_type">
+        <item>Select Type</item>
+        <item>public</item>
+        <item>private</item>
+        <item>password</item>
+    </string-array>
     <string name="hashedmd">PT. Deptech Digital Indonesia</string>
 
 
@@ -566,22 +572,16 @@
     <string name="hargajual">Selling Price</string>
     <string name="noticehargajual">*Suply Price x Margin + Tax </string>
     <string name="stock">Stock</string>
-    <string-array name="group_type">
-        <item>Select Type</item>
-        <item>public</item>
-        <item>private</item>
-        <item>password</item>
-    </string-array>
 
 
 
     <!--/ reminder -->
-    <string name="title_activity_add_reminder">Add Reminder</string>
-    <string name="title_activity_edit_reminder">Edit Reminder</string>
+    <string name="title_activity_add_reminder">Add Agenda</string>
+    <string name="title_activity_edit_reminder">Edit Agenda</string>
     <string name="title_activity_licenses">Licenses</string>
 
-    <string name="add_reminder">Reminder</string>
-    <string name="details">Details</string>
+    <string name="add_reminder">Agenda</string>
+    <string name="details">Agenda</string>
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="repeat">Repeat</string>
@@ -589,10 +589,10 @@
     <string name="repeat_no">Repetition Interval </string>
     <string name="repeat_type">Type of Repetitions</string>
 
-    <string name="action_discard_reminder">Discard Reminder</string>
-    <string name="action_save_reminder">Save Reminder</string>
+    <string name="action_discard_reminder">Discard Agenda</string>
+    <string name="action_save_reminder">Save Agenda</string>
 
-    <string name="no_reminders">Click on the plus button below to begin creating your reminders!</string>
+    <string name="no_reminders">Click on the plus button below to begin creating your agenda!</string>
 
     <string name="licenses"><BIG><b>NOTICES FOR LIBRARIES:</b></BIG> \n\n  <b>      1)  MaterialDateTimePicker
         </b> \n\n<TT>Copyright (c) 2015 Wouter Dullaert\n\n

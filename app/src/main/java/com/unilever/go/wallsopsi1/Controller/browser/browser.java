@@ -253,8 +253,12 @@ public class browser extends DialogFragment {
 
     @Override
     public void onDestroy() {
-        webview1.destroy();
-        webview1 = null;
+        try {
+            webview1.destroy();
+            webview1 = null;
+        }catch (Exception e){
+
+        }
         super.onDestroy();
     }
 }

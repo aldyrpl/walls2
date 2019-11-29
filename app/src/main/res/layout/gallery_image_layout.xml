@@ -5,9 +5,9 @@
     android:layout_height="180dp"
     android:orientation="vertical">
 
-        <ImageView
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"/>
+        android:scaleType="centerCrop" />
     </LinearLayout>

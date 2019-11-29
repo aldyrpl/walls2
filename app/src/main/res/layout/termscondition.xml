@@ -28,6 +28,7 @@
             android:layout_weight="2"
             android:layout_height="match_parent"
             android:textColor="#ffffff"
+            android:gravity="center|top"
             android:text="Close"
             android:id="@+id/close"
             android:textSize="@dimen/size_eghteen_sp_normal"/>

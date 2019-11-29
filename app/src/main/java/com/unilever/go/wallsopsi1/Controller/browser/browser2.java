@@ -3,6 +3,7 @@ package com.unilever.go.wallsopsi1.Controller.browser;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -91,17 +92,40 @@ public class browser2 extends AppCompatActivity {
         }else if(value == "Perimeter Walls"){
             url = "http://202.152.49.162:8003";
         }
+        try {
+            webview1 = findViewById(R.id.webView1);
+        }catch (Exception e){
 
-        webview1 = findViewById(R.id.webView1);
-        webview1.setResourceClient(new ResourceClient(webview1));
-        PB = findViewById(R.id.pbProcessing);
-        webview1.clearCache(true);
-        webview1.post(new Runnable() {
-            @Override
-            public void run() {
-                webview1.loadUrl(url);
-            }
-        });
+        }
+        try{
+            webview1.setResourceClient(new ResourceClient(webview1));
+        }catch (Exception e){
+
+        }
+        try{
+            PB = findViewById(R.id.pbProcessing);
+        }catch (Exception e){
+
+        }
+        try{
+            webview1.clearCache(true);
+        }catch (Exception e){
+
+        }
+        try{
+            webview1.post(new Runnable() {
+                @Override
+                public void run() {
+                    try{
+                        webview1.loadUrl(url);
+                    }catch (Exception e){
+
+                    }
+                }
+            });
+        }catch (Exception e){
+
+        }
     }
 
     class ResourceClient extends XWalkResourceClient {
@@ -117,9 +141,13 @@ public class browser2 extends AppCompatActivity {
 
         public void onLoadFinished(XWalkView view, String url) {
             super.onLoadFinished(view, url);
-            PB.setVisibility(View.GONE);
-            webview1.setVisibility(View.VISIBLE);
-            Log.d("tesuYeah", "Load Finished xwalk:" + url);
+            try {
+                PB.setVisibility(View.GONE);
+                webview1.setVisibility(View.VISIBLE);
+                Log.d("tesuYeah", "Load Finished xwalk:" + url);
+            }catch (Exception e){
+
+            }
         }
 
         public void onProgressChanged(XWalkView view, int progressInPercent) {
@@ -130,14 +158,37 @@ public class browser2 extends AppCompatActivity {
 
     @Override
     public void onDestroy() {
-        webview1.onDestroy();
+        try {
+            webview1.onDestroy();
+            finish();
+        }catch (Exception e){
+
+        }
         super.onDestroy();
     }
 
     @Override
     public void onBackPressed() {
-        webview1.onDestroy();
-        finish();
+        try {
+            webview1.onDestroy();
+            finish();
+        }catch (Exception e){
+
+        }
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            try {
+                webview1.onDestroy();
+                finish();
+            }catch (Exception e){
+
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 
 }

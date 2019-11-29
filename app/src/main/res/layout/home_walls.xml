@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent">
@@ -38,14 +39,19 @@
                     android:paddingLeft="@dimen/sell_size_thrty_normal"
                     android:background="@drawable/home_header_red_round"
                     >
-                    <ImageView
-                        android:src="@drawable/oval"
-                        android:background="@drawable/border_oval"
+                    <com.unilever.go.wallsopsi1.CustomView.CircleImageView
                         android:id="@+id/imgUserHome"
-                        android:layout_height="@dimen/sell_size_frtyfr_normal"
-                        android:layout_width="@dimen/sell_size_frtyfr_normal"
-                        android:layout_marginBottom="19dp"
-                        />
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        app:civ_circle_background_color="@color/secondaryColor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="-10dp"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/cardview"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -353,13 +359,6 @@
                             android:layout_height="match_parent"
                             android:layout_width="match_parent"
                             android:src="@drawable/message_idle"/>
-                        <View
-                            android:background="@drawable/oval_fill_red"
-                            android:layout_height="6dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="6dp"
-                            android:id="@+id/indicatorHomeMessage"
-                            />
                     </RelativeLayout>
                 </LinearLayout>
                 <ImageView

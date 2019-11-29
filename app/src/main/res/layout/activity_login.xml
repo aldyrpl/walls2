@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.unilever.go.walls.Activity.LoginActivity">
+    tools:context="com.unilever.go.wallsopsi1.Activity.LoginActivity">
 
 
     <ImageView

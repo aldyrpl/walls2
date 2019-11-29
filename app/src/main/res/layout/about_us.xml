@@ -29,6 +29,7 @@
             android:layout_height="match_parent"
             android:textColor="#ffffff"
             android:text="Close"
+            android:gravity="center|top"
             android:id="@+id/close"
             android:textSize="@dimen/size_eghteen_sp_normal"/>
     </LinearLayout>

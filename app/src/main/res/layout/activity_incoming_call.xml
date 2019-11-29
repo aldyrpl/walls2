@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <com.unilever.go.walls.CustomView.CircleImageView
+        <com.unilever.go.wallsopsi1.CustomView.CircleImageView
             android:id="@+id/ivUserImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -65,7 +65,7 @@
             tools:text="Jose Mortal" />
 
 
-        <com.unilever.go.walls.CustomView.CallScreenButton
+        <com.unilever.go.wallsopsi1.CustomView.CallScreenButton
             android:id="@+id/callScreenButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

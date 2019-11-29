@@ -38,7 +38,7 @@
             android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
             android:gravity="center|left"
             android:hint="Email"
-            android:text="admin@admin.com"
+            android:text=""
             android:textColor="#3e4a59"
             android:textSize="@dimen/sell_size_thteen_sp_normal" />
 
@@ -52,7 +52,7 @@
             android:gravity="center|left"
             android:hint="Password"
             android:inputType="textPassword"
-            android:text="123456"
+            android:text=""
             android:textColor="#3e4a59"
             android:textSize="@dimen/sell_size_thteen_sp_normal" />
         <TextView

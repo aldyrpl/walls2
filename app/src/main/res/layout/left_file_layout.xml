@@ -7,7 +7,7 @@
     android:padding="8dp">
 
 
-    <com.unilever.go.walls.CustomView.CircleImageView
+    <com.unilever.go.wallsopsi1.CustomView.CircleImageView
         android:id="@+id/imgAvatar"
         android:layout_width="35dp"
         android:layout_height="35dp"

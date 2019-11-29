@@ -24,7 +24,7 @@
             android:visibility="gone"
             android:src="@drawable/cc_ic_group" />
 
-        <com.unilever.go.walls.CustomView.CircleImageView
+        <com.unilever.go.wallsopsi1.CustomView.CircleImageView
             android:id="@+id/imageViewUserAvatar"
             android:layout_width="45dp"
             android:layout_height="45dp"

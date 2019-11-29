@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/video_background"
-    tools:context="com.unilever.go.walls.Activity.VideoViewActivity">
+    tools:context="com.unilever.go.wallsopsi1.Activity.VideoViewActivity">
 
 
     <VideoView

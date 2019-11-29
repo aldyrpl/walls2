@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.unilever.go.walls.Fragments.MemberListFragment">
+    tools:context="com.unilever.go.wallsopsi1.Fragments.MemberListFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_member"

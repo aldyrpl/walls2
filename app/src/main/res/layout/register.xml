@@ -66,6 +66,7 @@
             android:gravity="center|left"
             android:hint="Password"
             android:text=""
+            android:inputType="textPassword"
             android:textColor="#3e4a59"
             android:textSize="@dimen/sell_size_thteen_sp_normal" />
 
@@ -77,6 +78,7 @@
             android:layout_marginLeft="@dimen/sell_size_thrtytw_normal"
             android:layout_marginRight="@dimen/sell_size_thrtytw_normal"
             android:gravity="center|left"
+            android:inputType="textPassword"
             android:hint="Re-type Password"
             android:text=""
             android:textColor="#3e4a59"

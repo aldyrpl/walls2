@@ -35,27 +35,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_below="@+id/toolbar"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:id="@+id/add_reminder_layout_top"
         android:background="@color/primary"
         android:orientation="vertical"
-        android:layout_height="148dp">
+        android:layout_height="50dp">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:id="@+id/reminder_title"
-            android:layout_marginLeft="72dp"
-            android:hint="@string/add_reminder"
-            android:textSize="25dp"
-            android:lines="4"
-            android:minLines="4"
-            android:gravity="top|left"
-            android:textColor="#ffffff"
-            android:scrollHorizontally="false"
-            android:textColorHint="@color/primaryDarkColor"
-            android:inputType="textCapWords|textMultiLine"
-            android:layout_marginRight="16dp"
-            android:layout_height="140dp"/>
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:id="@+id/reminder_title"-->
+<!--            android:layout_marginLeft="72dp"-->
+<!--            android:hint="@string/add_reminder"-->
+<!--            android:textSize="25dp"-->
+<!--            android:lines="4"-->
+<!--            android:minLines="4"-->
+<!--            android:gravity="top|left"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:scrollHorizontally="false"-->
+<!--            android:textColorHint="#ffffff"-->
+<!--            android:inputType="textCapWords|textMultiLine"-->
+<!--            android:layout_marginRight="16dp"-->
+<!--            android:layout_height="140dp"/>-->
 
     </LinearLayout>
 
@@ -69,37 +68,6 @@
             android:orientation="vertical"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_marginTop="8dp"
-                android:text="@string/details"
-                android:id="@+id/details"
-                android:textSize="15dp"
-                android:gravity="center_vertical"
-                android:layout_marginLeft="72dp"
-                android:textColor="#5b6883"
-                android:layout_height="72dp"/>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:background="?android:attr/selectableItemBackground"
-                android:layout_height="72dp">
-
-                <ImageView
-                    android:id="@+id/listtask_icon"
-                    android:layout_width="21dp"
-                    android:layout_height="21dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="32dp"
-                    android:src="@drawable/listtask"
-                    android:layout_centerVertical="true" />
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_toRightOf="@id/listtask_icon"
-                android:textColor="@color/secondaryColor"
-                android:layout_height="72dp" />
-            </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:clickable="true"
@@ -334,6 +302,88 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/iconemail"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/icontext2" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iconemail"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/reminder_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/details"
+                        android:paddingLeft="2dp"
+                        android:background="@null"
+                        android:textColor="#5b6883"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/too"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/iconemaill"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/iconemail" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iconemaill"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatMultiAutoCompleteTextView
+                        android:id="@+id/to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="2dp"
+                        android:hint="Assign to : example1@gmail.com, example2@gmail.com"
+                        android:background="@null"
+                        android:ellipsize="end"
+                        android:textColor="#5b6883"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+
+
         </LinearLayout>
 
     </ScrollView>
@@ -355,7 +405,7 @@
         fab:fab_colorPressed="@color/fab_pressed"
         app:fab_size="normal"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="60dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="8dp"/>
 
@@ -370,7 +420,7 @@
         fab:fab_colorPressed="@color/fab_pressed"
         app:fab_size="normal"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="60dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="8dp"/>
 

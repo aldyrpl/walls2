@@ -30,15 +30,93 @@
             android:layout_height="match_parent"
             android:textColor="#ffffff"
             android:text="Close"
+            android:gravity="center|top"
             android:id="@+id/close"
             android:textSize="@dimen/size_eghteen_sp_normal"/>
     </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:id="@+id/scroll"
+        android:background="@null"
+        android:layout_below="@id/linearHeader"
+        android:scrollbarStyle="outsideInset"
+        android:gravity="center"
+        android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/menu"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="110dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:fontFamily="sans-serif"
+            android:id="@+id/utility"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/border_kuning_bawah"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="Utility"/>
+        <TextView
+            android:layout_width="110dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:id="@+id/ammonia"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="Ammonia Plant"/>
+        <TextView
+            android:layout_width="110dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:id="@+id/electricity"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="Electricity"/>
+        <TextView
+            android:layout_width="110dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:id="@+id/coldstore"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="Coldstore"/>
+        <TextView
+            android:layout_width="110dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:id="@+id/mixing"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="Mixing Plant"/>
+    </LinearLayout>
+    </HorizontalScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="No photos"
+        android:id="@+id/notfound"
+        android:layout_below="@+id/scroll"
+        android:visibility="gone"
+        android:textSize="@dimen/sell_size_twntyfour_sp_normal"
+        android:layout_height="match_parent"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        android:layout_below="@+id/linearHeader"
+        android:layout_below="@+id/scroll"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
