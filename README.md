@@ -43,7 +43,7 @@ CometChat Android Demo app (built using **CometChat Pro**) is a fully functional
 
    - Open the Project in Android Mode in Android Studio
 
-   - Go to Under java --> com\inscripts\cometchatpulse\demo --> Contracts --> StringContract
+   - Go to Under java --> walls1 --> Contracts --> StringContract
 
    - Under class `StringContract.class`  go to static `class` named `AppDetails`
 
@@ -96,3 +96,4 @@ CometChat Android Demo app (built using **CometChat Pro**) is a fully functional
    
    Feel free to make Pull Request. 
    
+# walls2
